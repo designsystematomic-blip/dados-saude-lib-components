@@ -7,6 +7,14 @@
     "type": "git",
     "url": "https://github.com/jubilly/dados-saude-lib-components.git"
   },
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/main.js",
+      "types": "./dist/main.d.ts"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc --p ./tsconfig-build.json && vite build",
@@ -15,10 +23,8 @@
     "generate": "cross-env NODE_OPTIONS=\"--import tsx\" plop --plopfile=./generate/plopfile.ts",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "main": "dist/main.js",
-    "types": "dist/main.d.ts",
     "prepublishOnly": "npm run build",
-    "release": "npm publish"
+    "release": "npm run build && npm version patch && npm publish"
   },
   "files": [
     "dist"
