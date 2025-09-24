@@ -26,14 +26,11 @@
   "sideEffects": [
     "**/*.css"
   ],
-  "dependencies": {},
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
     "@chromatic-com/storybook": "^4.1.1",
     "@eslint/js": "^9.36.0",
     "@storybook/addon-a11y": "^9.1.8",
@@ -56,6 +53,8 @@
     "path": "^0.12.7",
     "playwright": "^1.55.1",
     "plop": "^4.0.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "storybook": "^9.1.8",
     "tsx": "^4.20.5",
     "typescript": "~5.8.3",
