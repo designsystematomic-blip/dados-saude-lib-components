@@ -5,7 +5,7 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+ssh://"
+    "url": "https://github.com/jubilly/dados-saude-lib-components.git"
   },
   "scripts": {
     "dev": "vite",
