@@ -74,7 +74,7 @@ export default function (plop: NodePlopAPI) {
             type: "append",
             path: `${basePath}/index.ts`,
             pattern: /$/,
-            template: `export { default as {{pascalCase part}} } from "./{{pascalCase part}}";`,
+            template: `import {{pascalCase part}} from "./{{pascalCase part}}";`,
             data: { part },
           }
         );
