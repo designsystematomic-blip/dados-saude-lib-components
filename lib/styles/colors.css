@@ -17,4 +17,9 @@
 
   --button-bg-disabled: #a4a4a4;
   --button-text-disabled: #ffffff;
+
+  --bg-success: #2e7d32;
+  --bg-warning: #838506;
+  --bg-info: #033059;
+  --bg-error: #d32f2f;
 }
