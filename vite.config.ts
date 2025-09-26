@@ -29,5 +29,14 @@ export default defineConfig({
       fileName: (format, entryName) => `${entryName}.${format}.js`,
       cssFileName: "style",
     },
+    rollupOptions: {
+      external: ["react", "react-dom"],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
+    },
   },
 });

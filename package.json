@@ -21,6 +21,7 @@
     "dev": "vite",
     "build": "tsc --p ./tsconfig.json && vite build",
     "watch": "vite build --watch",
+    "dev:watch": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
     "generate": "cross-env NODE_OPTIONS=\"--import tsx\" plop --plopfile=./generate/plopfile.ts",
