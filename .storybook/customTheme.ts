@@ -4,7 +4,7 @@ export default create({
   base: "light",
   brandTitle: "Dados Saúde Biblioteca de Componentes",
   brandImage:
-    "https://raw.githubusercontent.com/jubilly/dados-saude-lib-components/a9e9a7b5c68f6a9aba3f53f5a468b1f4404aaf21/lib/assets/logo.svg?token=AEC2WT3EE6EZSLTANH2C7KLI22SFK",
+    "https://raw.githubusercontent.com/jubilly/dados-saude-lib-components/refs/heads/main/lib/assets/logoWithName.png?token=GHSAT0AAAAAADK56FTPCWFOVYNPC4XYJIMQ2GWU4CQ",
   brandTarget: "_self",
 
   // Typography
