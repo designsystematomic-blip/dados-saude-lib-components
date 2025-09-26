@@ -180,7 +180,7 @@ export default function (plop: NodePlopAPI) {
           type: "append",
           path: `../lib/icons/index.ts`,
           pattern: /$/,
-          template: `export { default as {{ pascalCase name}} } from "./Icon{{ pascalCase name}}";`,
+          template: `export { default as Icon{{ pascalCase name}} } from "./Icon{{ pascalCase name}}";`,
         },
         // To handle with generic types
         {

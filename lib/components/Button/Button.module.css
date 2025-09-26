@@ -1,0 +1,55 @@
+.button {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  font-weight: 500;
+  position: relative;
+}
+
+.primary {
+  font-size: 1rem;
+  line-height: 20px;
+  padding: 14px 20px;
+  background-color: var(--button-bg-primary);
+  color: var(--button-text-primary);
+}
+
+.secondary {
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  padding: 13px 20px;
+  background-color: var(--button-bg-secondary);
+  border: 1px solid var(--button-text-secondary);
+  color: var(--button-text-secondary);
+}
+
+.button:disabled,
+.button[aria-disabled="true"] {
+  background-color: var(--button-bg-disabled);
+  color: var(--button-text-disabled);
+  cursor: not-allowed;
+  border: none;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  display: inline-flex;
+  margin-right: 8px;
+}
+
+.loading .icon,
+.loading .label {
+  opacity: 0.2;
+}
+
+.spinner {
+  position: absolute;
+  width: 30px;
+}

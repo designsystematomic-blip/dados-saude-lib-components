@@ -1,0 +1,27 @@
+rules:
+  # Regras personalizadas para acessibilidade
+  heading-order: false # Desabilita verificação de ordem de cabeçalhos
+  color-contrast: true # Habilita verificação de contraste de cores
+  image-alt: true # Requer alt text em imagens
+  label: true # Requer labels em campos de formulário
+
+# Arquivos e diretórios para excluir da análise
+exclude:
+  - "tests/**/*.html"
+  - "**/*.stories.tsx"
+  - "**/*.test.tsx"
+  - "**/node_modules/**"
+
+# Mapeamento de componentes personalizados para elementos HTML
+global-components:
+  p: p # Trata <p> como <p>
+  button: button # Trata <button> como <button>
+  input: input # Trata <input> como <input>
+  div: div # Trata <div> como <div>
+
+# Bibliotecas de componentes a serem analisadas
+global-libraries:
+  - "react"
+  - "react-native"
+  - "@mui/material"
+  - "@lib/components"

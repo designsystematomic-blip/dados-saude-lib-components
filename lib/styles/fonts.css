@@ -1,3 +1,4 @@
+/* Poppins Font Face Declarations */
 @font-face {
   font-family: "Poppins";
   src: url("../assets/fonts/poppins/Poppins-Regular.ttf") format("truetype");
@@ -30,8 +31,44 @@
   font-display: swap;
 }
 
-/* Adicione este CSS para garantir que a fonte seja aplicada globalmente */
+/* Outfit Font Face Declarations */
+@font-face {
+  font-family: "Outfit";
+  src: url("../assets/fonts/outfit/Outfit-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("../assets/fonts/outfit/Outfit-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("../assets/fonts/outfit/Outfit-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("../assets/fonts/outfit/Outfit-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Root Variables */
 :root {
   --font-family-base: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-family-secondary: "Outfit", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
 }

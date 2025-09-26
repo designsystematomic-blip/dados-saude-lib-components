@@ -30,7 +30,8 @@
       "import": "./dist/main.js",
       "require": "./dist/main.js"
     },
-    "./components": "./dist/components/index.js"
+    "./components": "./dist/components/index.js",
+    "./icons": "./dist/icons/index.js"
   },
   "files": [
     "dist"
