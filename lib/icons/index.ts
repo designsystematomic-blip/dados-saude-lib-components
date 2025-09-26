@@ -6,3 +6,16 @@ export { default as IconChevronRight } from "./IconChevronRight";
 export { default as IconHappyFace } from "./IconHappyFace";
 export { default as IconAccount } from "./IconAccount";
 export { default as IconSpinner } from "./IconSpinner";
+
+export { default as IconHamburguer } from "./IconHamburguer";
+export { default as IconClose } from "./IconClose";
+export { default as IconFeed } from "./IconFeed";
+export { default as IconMedicalInformation } from "./IconMedicalInformation";
+export { default as IconContactPeople } from "./IconContactPeople";
+export { default as IconPeopleAlt } from "./IconPeopleAlt";
+export { default as IconMedication } from "./IconMedication";
+export { default as IconVaccines } from "./IconVaccines";
+export { default as IconHelpOutline } from "./IconHelpOutline";
+export { default as IconUploadFile } from "./IconUploadFile";
+export { default as IconUploadingFile } from "./IconUploadingFile";
+export { default as IconQualityCheck } from "./IconQualityCheck";
