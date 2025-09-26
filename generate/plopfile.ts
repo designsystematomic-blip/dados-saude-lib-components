@@ -1,7 +1,8 @@
 import { NodePlopAPI } from "plop";
 
 export default function (plop: NodePlopAPI) {
-  plop.setGenerator("🏗️ Composition pattern component", {
+  // Composition pattern component
+  plop.setGenerator("🏗️  Composition pattern component", {
     description: "Create a composition pattern component",
     prompts: [
       {
@@ -94,7 +95,7 @@ export default function (plop: NodePlopAPI) {
         message: "What is your component name?",
       },
     ],
-    actions(answers) {
+    actions() {
       const basePath = "../lib/components/{{pascalCase name}}";
       const actions: any[] = [];
 
@@ -137,6 +138,56 @@ export default function (plop: NodePlopAPI) {
         //   pattern: /$/,
         //   template: `export { default as {{ pascalCase name}} } from "./{{ pascalCase name}}";`,
         // }
+      );
+
+      return actions;
+    },
+  });
+
+  // Icon component
+  plop.setGenerator("🎨 Icon component", {
+    description: "Create an icon component",
+    prompts: [
+      {
+        type: "input",
+        name: "name",
+        message:
+          "What is your icon name? (e.g., Home, User, Settings) without 'Icon' suffix",
+      },
+    ],
+    actions() {
+      const basePath = "../lib/icons/Icon{{pascalCase name}}";
+      const actions: any[] = [];
+
+      actions.push(
+        {
+          type: "add",
+          path: `${basePath}/index.ts`,
+          templateFile: "plop-templates/Icon/index.ts.hbs",
+        },
+        {
+          type: "add",
+          path: `${basePath}/Icon{{ pascalCase name}}.tsx`,
+          templateFile: "plop-templates/Icon/Icon.tsx.hbs",
+        },
+        {
+          type: "add",
+          path: `${basePath}/Icon{{ pascalCase name}}.stories.tsx`,
+          templateFile: "plop-templates/Icon/Icon.stories.tsx.hbs",
+        },
+        // To update automatic exports in components index file
+        {
+          type: "append",
+          path: `../lib/icons/index.ts`,
+          pattern: /$/,
+          template: `export { default as {{ pascalCase name}} } from "./Icon{{ pascalCase name}}";`,
+        },
+        // To handle with generic types
+        {
+          type: "add",
+          path: `../lib/icons/Icon.types.ts`,
+          templateFile: "plop-templates/Icon/Icon.types.ts.hbs",
+        }
       );
 
       return actions;

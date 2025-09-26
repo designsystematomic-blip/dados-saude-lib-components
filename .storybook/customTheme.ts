@@ -3,8 +3,7 @@ import { create } from "storybook/theming";
 export default create({
   base: "light",
   brandTitle: "Dados Saúde Biblioteca de Componentes",
-  brandImage:
-    "https://raw.githubusercontent.com/jubilly/dados-saude-lib-components/refs/heads/main/lib/assets/logoWithName.png?token=GHSAT0AAAAAADK56FTPCWFOVYNPC4XYJIMQ2GWU4CQ",
+  brandImage: "favicon.png",
   brandTarget: "_self",
 
   // Typography
