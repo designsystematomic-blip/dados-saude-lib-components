@@ -1,7 +1,16 @@
 {
   "extends": "./tsconfig.json",
   "include": ["lib"],
+  "exclude": ["node_modules", "dist"],
   "compilerOptions": {
-    "outDir": "./lib"
+    "declaration": true,
+    "declarationDir": "dist",
+    "emitDeclarationOnly": false,
+    "outDir": "./dist",
+    "rootDir": "./lib",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "skipLibCheck": true
   }
 }
