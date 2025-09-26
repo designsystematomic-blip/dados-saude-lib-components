@@ -1,5 +1,10 @@
 :root {
-  --color-primary: #0476d9;
+  --bg-primary: #0476d9;
+  --bg-seconday: #a4a4a4;
+  --bg-disabled-first: #a4a4a4;
+  --bg-disabled-secondary: #d1d1d1;
+
+  --color-primary: #ffffff;
   --color-secondary: #6c757d;
   --color-disabled: #a4a4a4;
   --color-disabled-bg2: #d1d1d1;

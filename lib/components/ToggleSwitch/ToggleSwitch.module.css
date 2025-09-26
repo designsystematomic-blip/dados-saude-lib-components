@@ -20,14 +20,14 @@
 }
 
 .checkbox:checked + .label .slider {
-  background-color: var(--color-primary);
+  background-color: var(--bg-primary);
 }
 
 .slider {
   display: flex;
   width: 48px;
   height: 24px;
-  background-color: var(--color-disabled-bg2);
+  background-color: var(--bg-disabled-secondary);
   border-radius: 50px;
   position: relative;
 }
