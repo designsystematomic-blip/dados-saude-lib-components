@@ -124,12 +124,19 @@ export default function (plop: NodePlopAPI) {
           path: `${basePath}/{{ pascalCase name}}.stories.tsx`,
           templateFile: "plop-templates/Component/Component.stories.tsx.hbs",
         },
+        // To update automatic exports in components index file
         {
           type: "append",
-          path: `${basePath}/index.ts`,
+          path: `../lib/components/index.ts`,
           pattern: /$/,
           template: `export { default as {{ pascalCase name}} } from "./{{ pascalCase name}}";`,
         }
+        // {
+        //   type: "append",
+        //   path: `${basePath}/index.ts`,
+        //   pattern: /$/,
+        //   template: `export { default as {{ pascalCase name}} } from "./{{ pascalCase name}}";`,
+        // }
       );
 
       return actions;

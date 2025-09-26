@@ -19,11 +19,14 @@
     "outDir": "./dist",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["lib/*", "src/*"],
-      "@components/*": ["lib/components/*"],
-      "@components": ["lib/components/index.ts"]
-    }
+      "@src/*": ["src/*"],
+      "@lib/*": ["lib/*"]
+      // "@/*": ["lib/*", "src/*"],
+      // "@components/*": ["lib/components/*"],
+      // "@components": ["lib/components/index.ts"]
+    },
+    "typeRoots": ["./dist/main.d.ts", "./node_modules/@types"]
   }
 }
