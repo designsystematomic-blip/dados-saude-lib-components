@@ -1,3 +1,5 @@
+import { Teste } from "@/main";
+
 function App() {
   return (
     <>

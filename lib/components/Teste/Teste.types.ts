@@ -1,1 +1,1 @@
-export type TesteProps = { props?: string; };
+export type TesteProps = { text: string };

@@ -7,19 +7,19 @@
     "type": "git",
     "url": "https://github.com/jubilly/dados-saude-lib-components.git"
   },
-  "main": "./dist/main.js",
-  "module": "./dist/main.js",
+  "main": "./dist/main.es.js",
+  "module": "./dist/main.es.js",
   "types": "./dist/main.d.ts",
   "exports": {
     ".": {
       "types": "./dist/main.d.ts",
-      "import": "./dist/main.js",
-      "require": "./dist/main.js"
+      "import": "./dist/main.es.js",
+      "require": "./dist/main.es.js"
     }
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc --p ./tsconfig-build.json && vite build",
+    "build": "tsc --p ./tsconfig.json && vite build",
     "watch": "vite build --watch",
     "lint": "eslint .",
     "preview": "vite preview",
