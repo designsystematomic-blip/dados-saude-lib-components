@@ -1,10 +1,10 @@
 import { create } from "storybook/theming";
 
 export default create({
-  base: "dark",
+  base: "light",
   brandTitle: "Dados Saúde Biblioteca de Componentes",
-  brandUrl: "https://example.com",
-  brandImage: "https://storybook.js.org/images/placeholders/350x150.png",
+  brandImage:
+    "https://raw.githubusercontent.com/jubilly/dados-saude-lib-components/a9e9a7b5c68f6a9aba3f53f5a468b1f4404aaf21/lib/assets/logo.svg?token=AEC2WT3EE6EZSLTANH2C7KLI22SFK",
   brandTarget: "_self",
 
   // Typography
@@ -12,29 +12,29 @@ export default create({
   fontCode: "monospace",
 
   //
-  colorPrimary: "#3A10E5",
-  colorSecondary: "#585C6D",
+  //   colorPrimary: "#3A10E5",
+  //   colorSecondary: "#585C6D",
 
-  // UI
-  appBg: "#ffffff",
-  appContentBg: "#ffffff",
-  appPreviewBg: "#ffffff",
-  appBorderColor: "#585C6D",
-  appBorderRadius: 4,
+  //   // UI
+  //   appBg: "#ffffff",
+  //   appContentBg: "#ffffff",
+  //   appPreviewBg: "#ffffff",
+  //   appBorderColor: "#585C6D",
+  //   appBorderRadius: 4,
 
-  // Text colors
-  textColor: "#10162F",
-  textInverseColor: "#ffffff",
+  //   // Text colors
+  //   textColor: "#10162F",
+  //   textInverseColor: "#ffffff",
 
-  // Toolbar default and active colors
-  barTextColor: "#9E9E9E",
-  barSelectedColor: "#585C6D",
-  barHoverColor: "#585C6D",
-  barBg: "#ffffff",
+  //   // Toolbar default and active colors
+  //   barTextColor: "#9E9E9E",
+  //   barSelectedColor: "#585C6D",
+  //   barHoverColor: "#585C6D",
+  //   barBg: "#ffffff",
 
-  // Form colors
-  inputBg: "#ffffff",
-  inputBorder: "#10162F",
-  inputTextColor: "#10162F",
-  inputBorderRadius: 2,
+  //   // Form colors
+  //   inputBg: "#ffffff",
+  //   inputBorder: "#10162F",
+  //   inputTextColor: "#10162F",
+  //   inputBorderRadius: 2,
 });

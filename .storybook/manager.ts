@@ -1,5 +1,6 @@
 import { themes } from "storybook/internal/theming";
 import { addons, type State } from "storybook/manager-api";
+import customTheme from "./customTheme";
 
 addons.setConfig({
   navSize: 300,
@@ -8,7 +9,7 @@ addons.setConfig({
   panelPosition: "bottom",
   enableShortcuts: true,
   showToolbar: true,
-  theme: themes.dark,
+  theme: customTheme || themes.dark,
   selectedPanel: undefined,
   initialActive: "sidebar",
   layoutCustomisations: {
