@@ -1,8 +1,9 @@
+import { Text } from "@lib/components";
+
 function App() {
   return (
     <>
-      <h1>Dados Saúde Lib Components</h1>
-      <p>Welcome to the Dados Saúde Lib Components library!</p>
+      <Text content="This is a sample text component using the Poppins font." />
     </>
   );
 }

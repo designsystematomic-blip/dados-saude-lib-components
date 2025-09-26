@@ -1,5 +1,3 @@
-import type { IconProps } from "../Icon.types";
-
 const Tulip = () => {
   return (
     <svg
