@@ -19,3 +19,4 @@ export { default as IconHelpOutline } from "./IconHelpOutline";
 export { default as IconUploadFile } from "./IconUploadFile";
 export { default as IconUploadingFile } from "./IconUploadingFile";
 export { default as IconQualityCheck } from "./IconQualityCheck";
+export { default as IconEye } from "./IconEye";

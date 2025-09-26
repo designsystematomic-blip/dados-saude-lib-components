@@ -6,6 +6,8 @@
 
   --color-primary: #ffffff;
   --color-secondary: #6c757d;
+  --color-tertiary: #a1abb2;
+  --color-quartenary: #3c4043;
   --color-disabled: #a4a4a4;
   --color-disabled-bg2: #d1d1d1;
 
@@ -22,4 +24,8 @@
   --bg-warning: #838506;
   --bg-info: #033059;
   --bg-error: #d32f2f;
+
+  --color-border-primary: #d1d1d1;
+  --color-border-secondary: #505659;
+  --color-border-error: #ff4b4b;
 }

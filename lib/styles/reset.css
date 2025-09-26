@@ -1,0 +1,62 @@
+/* Universal box-sizing for easier layout calculations */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+/* Resetting default styles for form elements */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* Inherit font from parent */
+  margin: 0; /* Remove default margins */
+  padding: 0; /* Remove default paddings */
+  background: none; /* Remove default background */
+  color: inherit; /* Inherit color from parent */
+  -webkit-appearance: none; /* Remove browser-specific styling for webkit browsers */
+  -moz-appearance: none; /* Remove browser-specific styling for firefox */
+  appearance: none; /* Remove browser-specific styling */
+}
+
+/* Specific resets for certain input types */
+input[type="checkbox"],
+input[type="radio"] {
+  /* You might want to provide custom styling for these */
+  /* This example removes default appearance but you'll need to add your own visual cues */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 1px solid #ccc; /* Example: add a basic border */
+  width: 1em; /* Example: set a size */
+  height: 1em; /* Example: set a size */
+  vertical-align: middle; /* Align with text */
+  cursor: pointer;
+}
+
+/* Reset for focus outline */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: unset;
+}
+
+/* Remove inner focus for Firefox buttons and inputs */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}

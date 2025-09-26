@@ -14,7 +14,6 @@ export default {
 };
 
 const Template = (args: any) => {
-  // Use a state to manage the drawer visibility for demonstration
   const [open, setOpen] = useState(false);
   const toggleDrawer = () => setOpen(!open);
 
