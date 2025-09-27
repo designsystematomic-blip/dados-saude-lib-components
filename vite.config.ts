@@ -1,10 +1,11 @@
+import { glob } from "glob";
 import { defineConfig } from "vite";
 import path, { resolve } from "path";
-import dts from "vite-plugin-dts";
-import { libInjectCss } from "vite-plugin-lib-inject-css";
-import react from "@vitejs/plugin-react";
-import { glob } from "glob";
 import { fileURLToPath } from "url";
+import dts from "vite-plugin-dts";
+import react from "@vitejs/plugin-react";
+import { libInjectCss } from "vite-plugin-lib-inject-css";
+import { viteStaticCopy } from "vite-plugin-static-copy";
 
 export default defineConfig({
   plugins: [
@@ -16,6 +17,12 @@ export default defineConfig({
       insertTypesEntry: true,
     }),
     libInjectCss(),
+    viteStaticCopy({
+      targets: [
+        { src: "lib/assets/*", dest: "assets" },
+        { src: "lib/styles/*", dest: "styles" },
+      ],
+    }),
   ],
   resolve: {
     alias: [
@@ -62,6 +69,10 @@ export default defineConfig({
       ),
       output: {
         entryFileNames: `[name].js`,
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === "style.css") return "styles/[name][extname]";
+          return "assets/[name][extname]";
+        },
         // globals: {
         //   react: "React",
         //   "react-dom": "ReactDOM",

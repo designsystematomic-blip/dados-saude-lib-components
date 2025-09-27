@@ -31,10 +31,13 @@
       "require": "./dist/main.js"
     },
     "./components": "./dist/components/index.js",
-    "./icons": "./dist/icons/index.js"
+    "./icons": "./dist/icons/index.js",
+    "./styles": "./dist/styles/*.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "dist/styles",
+    "dist/assets"
   ],
   "sideEffects": [
     "**/*.css"
@@ -77,6 +80,7 @@
     "vite": "^7.1.7",
     "vite-plugin-dts": "^4.5.4",
     "vite-plugin-lib-inject-css": "^2.2.2",
+    "vite-plugin-static-copy": "^3.1.2",
     "vitest": "^3.2.4"
   }
 }

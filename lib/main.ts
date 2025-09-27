@@ -1,1 +1,1 @@
-export { Text, Wrapper } from "./components";
+export * from "./components";
