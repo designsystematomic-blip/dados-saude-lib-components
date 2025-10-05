@@ -8,19 +8,19 @@ function Input({
   ariaLabel,
   labelId,
   label = "label",
-  placeholder = "Type here",
-  description = "Ex: Lorem ipsum",
+  placeholder = "",
+  description = "",
   value,
   handleOnChange,
   height = 42,
-  protect = true,
   type = "text",
   maxTextLength,
 }: InputProps) {
   const [showPassword, setShowPassword] = useState(false);
 
-  const inputType =
-    type === "password" && protect && !showPassword ? "password" : "text";
+  console.log("showPassword", showPassword);
+
+  const inputType = type === "password" && !showPassword ? "password" : "text";
 
   return (
     <div className={styles.container}>
@@ -41,11 +41,14 @@ function Input({
           value={value}
           onChange={handleOnChange}
         />
-        {protect && type === "password" && (
+        {type === "password" && (
           <button
             type="button"
             aria-label="toggle password visibility"
-            onClick={() => setShowPassword((prev) => !prev)}
+            onClick={() => {
+              setShowPassword((prev) => !prev);
+              console.log("clicou");
+            }}
             className={styles.buttonProtect}
           >
             <IconEye />

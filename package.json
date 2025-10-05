@@ -1,5 +1,5 @@
 {
-  "name": "@amandapratesc/dados-saude-lib-components",
+  "name": "dados-saude",
   "private": false,
   "version": "1.0.4",
   "type": "module",
@@ -21,8 +21,8 @@
     "prepublishOnly": "npm run build",
     "release": "npm run build && npm version patch && npm publish"
   },
-  "main": "./dist/main.es.js",
-  "module": "./dist/main.es.js",
+  "main": "./dist/main.js",
+  "module": "./dist/main.js",
   "types": "./dist/main.d.ts",
   "exports": {
     ".": {
@@ -32,12 +32,13 @@
     },
     "./components": "./dist/components/index.js",
     "./icons": "./dist/icons/index.js",
-    "./styles": "./dist/styles/*.css"
+    "./styles/*": "./dist/styles/*",
+    "./assets/*": "./dist/assets/*"
   },
   "files": [
     "dist",
-    "dist/styles",
-    "dist/assets"
+    "dist/styles/*.css",
+    "dist/assets/*"
   ],
   "sideEffects": [
     "**/*.css"

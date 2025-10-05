@@ -1,1 +1,7 @@
-.container { /* Add your styles here */ }
+.container {
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media screen and (min-width: 769px) {
+}

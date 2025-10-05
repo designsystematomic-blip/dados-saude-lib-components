@@ -13,7 +13,7 @@ export default defineConfig({
     dts({
       include: ["lib"],
       exclude: ["lib/**/*.stories.tsx"],
-      rollupTypes: false,
+      rollupTypes: true,
       insertTypesEntry: true,
     }),
     libInjectCss(),
@@ -43,13 +43,13 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, "lib/main.ts"),
       formats: ["es"],
-      name: "@amandapratesc/dados-saude-lib-components",
+      name: "dados-saude",
       fileName: (format, entryName) => `${entryName}.${format}.js`,
       cssFileName: "style",
     },
     rollupOptions: {
       external: ["react", "react-dom", "react/jsx-runtime"],
-      experimentalCacheExpiry: 20,
+      // experimentalCacheExpiry: 20,
       input: Object.fromEntries(
         glob
           .sync("lib/**/*.{ts,tsx}", {
@@ -73,10 +73,10 @@ export default defineConfig({
           if (assetInfo.name === "style.css") return "styles/[name][extname]";
           return "assets/[name][extname]";
         },
-        // globals: {
-        //   react: "React",
-        //   "react-dom": "ReactDOM",
-        // },
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
       },
     },
   },

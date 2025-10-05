@@ -5,6 +5,7 @@
   border-radius: 50px;
   font-weight: 500;
   position: relative;
+  font-family: var(--font-family-secondary);
 }
 
 .primary {

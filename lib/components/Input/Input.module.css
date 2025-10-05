@@ -47,6 +47,10 @@
   border-color: var(--color-border-secondary);
 }
 
+.input[type="password"]::-ms-reveal {
+  display: none;
+}
+
 .buttonProtect {
   position: absolute;
   appearance: none;

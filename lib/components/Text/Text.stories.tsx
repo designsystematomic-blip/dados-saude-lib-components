@@ -5,6 +5,22 @@ const meta: Meta<typeof Text> = {
   title: "Components/Text",
   component: Text,
   tags: ["autodocs"],
+  argTypes: {
+    content: { control: "text" },
+    variant: {
+      control: { type: "select" },
+      options: ["primary", "secondary", "tertiary"],
+    },
+    size: {
+      control: { type: "select" },
+      options: ["small", "medium", "large"],
+    },
+    color: { control: "color" },
+    align: {
+      control: { type: "select" },
+      options: ["left", "center", "right", "justify"],
+    },
+  },
 };
 
 export default meta;

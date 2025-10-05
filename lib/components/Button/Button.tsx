@@ -4,6 +4,7 @@ import type { ButtonProps } from "./Button.types";
 import { useMemo } from "react";
 
 function Button({
+  type = "button",
   icon,
   label,
   ariaLabel,
@@ -22,6 +23,7 @@ function Button({
 
   return (
     <button
+      type={type}
       aria-label={ariaLabel}
       aria-disabled={isDisabled || isLoading}
       className={`${styles.button} ${styles[variant || "primary"]} ${

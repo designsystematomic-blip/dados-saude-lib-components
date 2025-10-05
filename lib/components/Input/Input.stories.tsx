@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { StoryObj } from "@storybook/react";
 import Input from "./Input";
-import { ReactEventHandler, useState } from "react";
+import { useState } from "react";
 
 export default {
   title: "Components/Input",
@@ -31,7 +31,6 @@ const Template = (args: any) => {
       handleOnChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
         setInfo(e.target.value)
       }
-      protect={true}
     />
   );
 };

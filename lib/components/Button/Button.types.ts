@@ -1,5 +1,6 @@
 export type ButtonProps = {
-  icon: React.ReactNode;
+  type: "button" | "submit" | "reset";
+  icon?: React.ReactNode;
   label: string;
   ariaLabel?: string;
   variant?: "primary" | "secondary";

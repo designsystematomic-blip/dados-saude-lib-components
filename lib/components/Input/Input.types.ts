@@ -5,12 +5,10 @@ export type InputProps = {
   label: string;
   placeholder: string;
   description: string;
-  info: string;
-  height: number;
+  height?: number;
   clear?: boolean;
-  protect?: boolean;
   value: string;
-  handleOnChange: () => void;
+  handleOnChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   type: "text" | "password" | "email";
   maxTextLength?: number;
   regex?: "string";

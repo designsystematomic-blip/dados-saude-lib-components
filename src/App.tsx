@@ -1,6 +1,9 @@
-import { Button, Text } from "@lib/components";
+import { Button, Input, Text } from "@lib/components";
+import { useState } from "react";
 
 function App() {
+  const [password, setPassword] = useState<string>("");
+
   return (
     <>
       <Text content="This is a sample text component using the Poppins font." />
@@ -37,6 +40,24 @@ function App() {
           icon={<span>🚀</span>}
           onClick={() => alert("Button clicked!")}
           variant="secondary"
+        />
+      </div>
+
+      <div>
+        <Input
+          label="Senha"
+          id="senha"
+          ariaLabel="Senha"
+          labelId={"senha"}
+          handleOnChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+            setPassword(event.target.value);
+          }}
+          value={password}
+          maxTextLength={50}
+          description=""
+          placeholder="Digite a sua senha"
+          type="password"
+          protect={true}
         />
       </div>
     </>

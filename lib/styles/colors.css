@@ -28,4 +28,7 @@
   --color-border-primary: #d1d1d1;
   --color-border-secondary: #505659;
   --color-border-error: #ff4b4b;
+
+  --color-link-primary: #505659;
+  --color-link-secondary: #0476d9;
 }

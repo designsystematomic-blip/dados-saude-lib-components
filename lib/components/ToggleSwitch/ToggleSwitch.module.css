@@ -5,7 +5,7 @@
   gap: 8px;
 }
 
-.checkbox {
+.checkbox[type="checkbox"] {
   opacity: 0;
   width: 48px;
   height: 24px;

@@ -1,6 +1,6 @@
 {
   "include": ["lib", "src"],
-  "exclude": ["node_modules", "dist"],
+  "exclude": ["node_modules", "dist", ".storybook"],
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
