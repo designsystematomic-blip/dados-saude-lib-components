@@ -10,20 +10,17 @@ function Input({
   label = "label",
   placeholder = "",
   description = "",
-  value,
-  handleOnChange,
   height = 42,
   type = "text",
   maxTextLength,
+  ...props
 }: InputProps) {
   const [showPassword, setShowPassword] = useState(false);
-
-  console.log("showPassword", showPassword);
 
   const inputType = type === "password" && !showPassword ? "password" : "text";
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container + " " + styles.inputGroup}>
       <label className={styles.label} htmlFor={id} id={labelId}>
         <span>{label}</span>
       </label>
@@ -38,8 +35,7 @@ function Input({
           placeholder={placeholder}
           maxLength={maxTextLength}
           style={{ height: `${height}px` }}
-          value={value}
-          onChange={handleOnChange}
+          {...props}
         />
         {type === "password" && (
           <button
@@ -61,3 +57,11 @@ function Input({
 }
 
 export default Input;
+
+export function InputError({ children }: React.PropsWithChildren) {
+  return (
+    <p className={styles.error} role="alert">
+      {children}
+    </p>
+  );
+}

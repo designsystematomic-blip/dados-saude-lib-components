@@ -14,6 +14,10 @@ export default {
 const Template = (args: any) => {
   const [info, setInfo] = useState<string>("");
 
+  const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInfo(event.target.value);
+  };
+
   return (
     <Input
       {...args}
@@ -27,10 +31,7 @@ const Template = (args: any) => {
       info="Only text"
       description="Max caracteres: 100"
       content={info}
-      value={info}
-      handleOnChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-        setInfo(e.target.value)
-      }
+      {...{ onChange: handleOnChange, value: info }}
     />
   );
 };

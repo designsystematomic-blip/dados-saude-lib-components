@@ -7,8 +7,6 @@ export type InputProps = {
   description: string;
   height?: number;
   clear?: boolean;
-  value: string;
-  handleOnChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   type: "text" | "password" | "email";
   maxTextLength?: number;
   regex?: "string";

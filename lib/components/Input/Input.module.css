@@ -60,3 +60,11 @@
   top: 29%;
   right: 16px;
 }
+
+.error {
+  color: var(--color-border-error);
+}
+
+.inputGroup {
+  gap: 8px;
+}

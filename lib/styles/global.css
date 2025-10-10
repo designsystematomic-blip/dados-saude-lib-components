@@ -2,6 +2,11 @@ input {
   border: 1px solid;
 }
 
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 /* Font Family Variant */
 .fontPrimary {
   font-family: var(--font-family-base);

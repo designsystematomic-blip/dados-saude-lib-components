@@ -1,9 +1,8 @@
 import { useMemo } from "react";
-import styles from "./Text.module.css";
 import type { TextProps } from "./Text.types";
 import toCapitalizeCase from "@lib/utils";
 
-function Text({ content, variant, size, color, align }: TextProps) {
+function Text({ content, variant, size, color, align, children }: TextProps) {
   const extraClasses = useMemo(() => {
     let classes = "";
     if (align) {
@@ -27,6 +26,7 @@ function Text({ content, variant, size, color, align }: TextProps) {
       style={{ color: color ? color : "inherit" }}
     >
       {content}
+      {children}
     </p>
   );
 }
