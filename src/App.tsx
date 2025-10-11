@@ -1,4 +1,5 @@
-import { Button, Input, Text } from "@lib/components";
+import { Button, Header, Input, Text, Title } from "@lib/components";
+import { IconHamburguer, IconTulip } from "@lib/icons";
 import { useState } from "react";
 
 function App() {
@@ -6,7 +7,7 @@ function App() {
 
   return (
     <>
-      <Text content="This is a sample text component using the Poppins font." />
+      {/* <Text content="This is a sample text component using the Poppins font." />
       <div
         className="button-group"
         style={{ display: "flex", gap: "10px", marginTop: "20px" }}
@@ -59,7 +60,25 @@ function App() {
           type="password"
           protect={true}
         />
-      </div>
+      </div> */}
+
+      <Header.Root>
+        <Header.Wrapper>
+          <Header.Logo
+            type="svg"
+            svg={<IconTulip />}
+            size="regular"
+            alt="Tulip Ion"
+          />
+          <Title tag="h2" content="Início" />
+          <Header.Action
+            onClick={() => console.log("aciton")}
+            icon={<IconHamburguer />}
+            ariaLabel="Action"
+            name="actio"
+          />
+        </Header.Wrapper>
+      </Header.Root>
     </>
   );
 }

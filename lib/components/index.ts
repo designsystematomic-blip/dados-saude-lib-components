@@ -8,3 +8,5 @@ export { default as Snackbar } from "./Snackbar";
 export { default as Input } from "./Input";
 
 export { default as Title } from "./Title";
+
+export { default as Header } from "./Header";
