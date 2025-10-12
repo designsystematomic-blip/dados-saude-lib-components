@@ -12,6 +12,12 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    options: {
+      storySort: {
+        method: 'alphabetical',
+        locales: 'pt-BR',
+      },
+    },
 
     a11y: {
       // 'todo' - show a11y violations in the test UI only

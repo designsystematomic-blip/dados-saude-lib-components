@@ -6,11 +6,13 @@
   font-weight: 500;
   position: relative;
   font-family: var(--font-family-secondary);
+  display: flex;
+  align-items: center;
 }
 
 .primary {
-  font-size: 1rem;
-  line-height: 20px;
+  font-size: 14px;
+  line-height: 18px;
   padding: 14px 20px;
   background-color: var(--button-bg-primary);
   color: var(--button-text-primary);
@@ -42,6 +44,13 @@
 
 .icon {
   display: inline-flex;
+}
+
+.iconRight {
+  margin-left: 8px;
+}
+
+.iconLeft {
   margin-right: 8px;
 }
 

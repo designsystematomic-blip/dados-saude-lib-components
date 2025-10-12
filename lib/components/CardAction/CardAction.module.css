@@ -1,0 +1,19 @@
+.buttonCard {
+	appearance: none;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.1);
+	border-radius: 12px;
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: 8px;
+}
+
+.buttonCard[disabled] {
+	cursor: not-allowed;
+	opacity: 0.6;
+}

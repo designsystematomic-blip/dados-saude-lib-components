@@ -1,0 +1,22 @@
+.container { 
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	width: 100%;
+}
+
+.select {
+	padding: 11px 16px;
+	border: 1px solid var(--color-border-primary);
+	border-radius: 5px;
+	cursor: pointer;
+	color: var(--color-border-primary);
+	-webkit-appearance: none; /* Para navegadores WebKit */
+  -moz-appearance: none; /* Para navegadores Firefox */
+}
+
+.select:focus {
+	outline: none;
+	border-color: var(--color-border-secondary);
+	color: var(--color-quartenary);
+}

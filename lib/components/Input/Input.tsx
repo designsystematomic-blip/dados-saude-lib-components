@@ -1,7 +1,7 @@
-import { IconEye } from "@lib/icons";
+import { IconCancel, IconEye } from "@lib/icons";
 import styles from "./Input.module.css";
 import type { InputProps } from "./Input.types";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 function Input({
   id = "id-input",
@@ -10,14 +10,23 @@ function Input({
   label = "label",
   placeholder = "",
   description = "",
-  height = 42,
+  height = '42px',
   type = "text",
   maxTextLength,
+  hasError = false,
+  handleClear,
   ...props
 }: InputProps) {
   const [showPassword, setShowPassword] = useState(false);
 
-  const inputType = type === "password" && !showPassword ? "password" : "text";
+  const inputType = useMemo(() => {
+
+    if (type === "password") {
+      return showPassword ? "text" : "password";
+    }
+    return type;
+
+  },[type, showPassword]);
 
   return (
     <div className={styles.container + " " + styles.inputGroup}>
@@ -26,7 +35,7 @@ function Input({
       </label>
       <div className={styles.inputContainer}>
         <input
-          className={styles.input}
+          className={`${styles.input} ${hasError ? styles.inputError : ""}`}
           type={inputType}
           name={id}
           id={id}
@@ -34,16 +43,20 @@ function Input({
           aria-labelledby={labelId}
           placeholder={placeholder}
           maxLength={maxTextLength}
-          style={{ height: `${height}px` }}
+          style={{ height }}
           {...props}
         />
-        {type === "password" && (
+        {hasError && (
+          <button type="button" aria-label="clear input" className={styles.buttonClear} onClick={handleClear}>
+            <IconCancel fillColor="var(--color-text-error)" />
+          </button> 
+        )}
+        {!hasError && type === "password" && (
           <button
             type="button"
             aria-label="toggle password visibility"
             onClick={() => {
               setShowPassword((prev) => !prev);
-              console.log("clicou");
             }}
             className={styles.buttonProtect}
           >

@@ -1,0 +1,21 @@
+.item {
+	padding: 24px 32px 18px;
+	cursor: pointer;
+}
+
+.flex {
+	display: flex;
+	align-items: center;
+}
+
+.spaceBetween {
+	justify-content: space-between;
+}
+
+.itemGroupOne {
+	gap: 8px;
+}
+
+.icon {
+	height: 24px;
+}

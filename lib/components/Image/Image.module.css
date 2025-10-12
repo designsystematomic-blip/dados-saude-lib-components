@@ -1,0 +1,29 @@
+.slim {
+  width: 16px;
+  height: 16px;
+}
+
+.regular {
+  width: 21px;
+}
+
+.medium {
+  width: 30px;
+}
+
+.large {
+  width: 50px;
+}
+
+.natural {
+	width: auto;
+	height: auto;
+}
+
+.slim > *,
+.regular > *,
+.medium > *,
+.large > * {
+  width: 100%;
+  height: 100%;
+}

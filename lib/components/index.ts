@@ -1,12 +1,16 @@
 export { default as Text } from "./Text";
 export { default as Wrapper } from "./Wrapper";
-
 export { default as Button } from "./Button";
 export { default as ToggleSwitch } from "./ToggleSwitch";
 export { default as Tag } from "./Tag";
 export { default as Snackbar } from "./Snackbar";
 export { default as Input } from "./Input";
-
 export { default as Title } from "./Title";
-
 export { default as Header } from "./Header";
+export { default as Select } from "./Select";
+export { default as CardAction } from "./CardAction";
+export { default as Drawer } from "./Drawer";
+export { default as Menu } from "./Menu";
+export { default as Image } from "./Image";
+export { default as VetorialImage } from "./VetorialImage";
+export { default as EmptyState } from "./EmptyState";

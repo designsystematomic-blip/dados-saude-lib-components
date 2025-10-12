@@ -15,7 +15,7 @@ export const Default: Story = {
   args: {
     label: "Click Me",
     ariaLabel: "Sample Button",
-    icon: <span>🚀</span>,
+    iconRight: <span>🚀</span>,
     onClick: () => alert("Button clicked!"),
     variant: "primary",
   },
@@ -25,7 +25,7 @@ export const Secondary: Story = {
   args: {
     label: "Click Me",
     ariaLabel: "Sample Button",
-    icon: <span>🚀</span>,
+    iconLeft: <span>🚀</span>,
     onClick: () => alert("Button clicked!"),
     variant: "secondary",
   },
@@ -35,7 +35,7 @@ export const Disabled: Story = {
   args: {
     label: "Disabled",
     ariaLabel: "Sample Button",
-    icon: <span>🚀</span>,
+    iconRight: <span>🚀</span>,
     onClick: () => alert("Button clicked!"),
     variant: "secondary",
     isDisabled: true,
@@ -46,7 +46,7 @@ export const Loading: Story = {
   args: {
     label: "On Loading",
     ariaLabel: "Sample Button",
-    icon: <span>🚀</span>,
+    iconRight: <span>🚀</span>,
     onClick: () => alert("Button clicked!"),
     variant: "secondary",
     isDisabled: true,

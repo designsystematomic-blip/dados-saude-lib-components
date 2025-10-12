@@ -5,7 +5,8 @@ import { useMemo } from "react";
 
 function Button({
   type = "button",
-  icon,
+  iconLeft,
+  iconRight,
   label,
   ariaLabel,
   isDisabled,
@@ -32,8 +33,9 @@ function Button({
       disabled={isDisabled || isLoading}
       onClick={onClick}
     >
-      {icon && <span className={styles.icon}>{icon}</span>}
+      {iconLeft && <span className={`${styles.icon} ${styles.iconLeft}`}>{iconLeft}</span>}
       <span className={styles.label}>{label}</span>
+      {iconRight && <span className={`${styles.icon} ${styles.iconRight}`}>{iconRight}</span>}
       {isLoading && (
         <span className={styles.spinner}>
           <IconSpinner stopColor={loadingColor} strokeColor={loadingColor} />

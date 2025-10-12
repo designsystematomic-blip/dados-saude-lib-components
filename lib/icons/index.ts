@@ -6,7 +6,6 @@ export { default as IconChevronRight } from "./IconChevronRight";
 export { default as IconHappyFace } from "./IconHappyFace";
 export { default as IconAccount } from "./IconAccount";
 export { default as IconSpinner } from "./IconSpinner";
-
 export { default as IconHamburguer } from "./IconHamburguer";
 export { default as IconClose } from "./IconClose";
 export { default as IconFeed } from "./IconFeed";
@@ -20,3 +19,6 @@ export { default as IconUploadFile } from "./IconUploadFile";
 export { default as IconUploadingFile } from "./IconUploadingFile";
 export { default as IconQualityCheck } from "./IconQualityCheck";
 export { default as IconEye } from "./IconEye";
+export { default as IconCancel } from "./IconCancel";
+export { default as IconDocumentEmptyFolder } from "./IconDocumentEmptyFolder";
+export { default as IconPlus } from "./IconPlus";

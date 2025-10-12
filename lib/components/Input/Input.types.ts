@@ -1,13 +1,15 @@
 export type InputProps = {
   id: string;
+  type: "text" | "password" | "email" | "date";
   ariaLabel: string;
   labelId: string;
   label: string;
   placeholder: string;
-  description: string;
-  height?: number;
+  description?: string;
+  height?: string;
   clear?: boolean;
-  type: "text" | "password" | "email";
   maxTextLength?: number;
-  regex?: "string";
+  style?: React.CSSProperties;
+  hasError?: boolean;
+  handleClear?: () => void;
 };

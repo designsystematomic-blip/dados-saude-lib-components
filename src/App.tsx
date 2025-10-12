@@ -1,9 +1,10 @@
-import { Button, Header, Input, Text, Title } from "@lib/components";
+import { Button, Drawer, Header, Input, Select, Text, Title } from "@lib/components";
 import { IconHamburguer, IconTulip } from "@lib/icons";
 import { useState } from "react";
 
 function App() {
-  const [password, setPassword] = useState<string>("");
+
+  const [open, setOpen] = useState(false);
 
   return (
     <>
@@ -78,6 +79,27 @@ function App() {
             name="actio"
           />
         </Header.Wrapper>
+
+        <button type="button" onClick={() => setOpen(true)}>Open Drawer</button>
+
+        <Drawer
+          isOpen={open}
+          onClose={() => {
+            console.log('drawer overlay') 
+            setOpen(!open)
+          }}
+          position="left"
+          width="full"
+        >
+
+          <button type="button" onClick={() => {
+            console.log('drawer overlay') 
+            setOpen(!open)
+          }}>Close Drawer</button>
+          <p>Drawer Content</p>
+
+        </Drawer>
+
       </Header.Root>
     </>
   );

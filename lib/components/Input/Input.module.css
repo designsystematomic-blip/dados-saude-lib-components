@@ -51,6 +51,11 @@
   display: none;
 }
 
+/* .input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+} */
+
 .buttonProtect {
   position: absolute;
   appearance: none;
@@ -61,10 +66,20 @@
   right: 16px;
 }
 
-.error {
-  color: var(--color-border-error);
+.inputError {
+  border-color: var(--color-border-error);
 }
 
 .inputGroup {
-  gap: 8px;
+  gap: 4px;
+  width: 100%;
+}
+
+.buttonClear {
+  position: absolute;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  top: 13px;
+  right: 10px;
 }
