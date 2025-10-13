@@ -14,3 +14,5 @@ export { default as Menu } from "./Menu";
 export { default as Image } from "./Image";
 export { default as VetorialImage } from "./VetorialImage";
 export { default as EmptyState } from "./EmptyState";
+export { default as Droplist } from "./Droplist";
+export { default as Textarea } from "./Textarea";

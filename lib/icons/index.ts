@@ -22,3 +22,4 @@ export { default as IconEye } from "./IconEye";
 export { default as IconCancel } from "./IconCancel";
 export { default as IconDocumentEmptyFolder } from "./IconDocumentEmptyFolder";
 export { default as IconPlus } from "./IconPlus";
+export { default as IconChevronDown } from "./IconChevronDown";

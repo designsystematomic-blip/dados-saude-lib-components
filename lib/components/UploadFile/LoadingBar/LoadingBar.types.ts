@@ -1,0 +1,1 @@
+export type LoadingBarProps = { children?: React.ReactNode; };

@@ -18,7 +18,7 @@ function Text({ content, variant, size, color, align, children }: TextProps) {
     }
 
     return classes;
-  }, [variant, align]);
+  }, [variant, align, size]);
 
   return (
     <p

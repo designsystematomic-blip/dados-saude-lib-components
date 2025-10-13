@@ -1,0 +1,10 @@
+import type { IconProps } from '../Icon.types';
+
+const ChevronDown = ({ fillColor = '#000' }:IconProps) => {
+  return <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M11.06 5.52979L8 8.58312L4.94 5.52979L4 6.46979L8 10.4698L12 6.46979L11.06 5.52979Z" fill={fillColor}/>
+  </svg>
+  ;
+};
+
+export default ChevronDown;

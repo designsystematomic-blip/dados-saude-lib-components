@@ -40,7 +40,7 @@
 }
 
 .input::placeholder {
-  color: var(--color-tertiary, #ff0);
+  color: var(--color-tertiary);
 }
 
 .input:focus {

@@ -1,6 +1,7 @@
 :root {
   --bg-primary: #0476d9;
   --bg-seconday: #a4a4a4;
+  --bg-tertiary: #ffffff;
   --bg-disabled-first: #a4a4a4;
   --bg-disabled-secondary: #d1d1d1;
 
@@ -29,6 +30,8 @@
 
   --color-border-primary: #d1d1d1;
   --color-border-secondary: #505659;
+  --color-border-tertiary: #F1F1F1;
+  --color-border-quartenary: #0C0C0C;
   --color-border-error: #ff4b4b;
 
   --color-link-primary: #505659;

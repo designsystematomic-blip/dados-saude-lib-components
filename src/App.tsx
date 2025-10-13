@@ -1,10 +1,15 @@
-import { Button, Drawer, Header, Input, Select, Text, Title } from "@lib/components";
+import { Button, Drawer, Droplist, Header, Input, Select, Text, Title } from "@lib/components";
 import { IconHamburguer, IconTulip } from "@lib/icons";
 import { useState } from "react";
 
 function App() {
 
   const [open, setOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState<{value: string | number; name: string}>();
+
+  const handleSelectItem = (item: {value: string | number; name: string}) => {
+    setSelectedItem(item)
+  }
 
   return (
     <>
@@ -63,7 +68,7 @@ function App() {
         />
       </div> */}
 
-      <Header.Root>
+      {/* <Header.Root>
         <Header.Wrapper>
           <Header.Logo
             type="svg"
@@ -100,7 +105,36 @@ function App() {
 
         </Drawer>
 
-      </Header.Root>
+      </Header.Root> */}
+
+
+      <Droplist
+
+        placeholder="Selecione a especialidade"
+      
+        handleSelectItem={handleSelectItem}
+        label="Especialidade (Opcional)"
+        name="Selectione o tipo"
+        listTitle="Teste"
+        list={[
+          {value: 1, name: 'Opção 1'},
+          {value: 2, name: 'Opção 2'},
+          {value: 3, name: 'Opção 3'},
+          {value: 3, name: 'Opção 3'},
+          {value: 3, name: 'Opção 3'},
+          {value: 3, name: 'Opção 3'},
+          {value: 3, name: 'Opção 3'},
+          {value: 3, name: 'Opção 3'},
+          {value: 3, name: 'Opção 3'},
+          {value: 3, name: 'Opção 3'},
+          {value: 3, name: 'Opção 3'},
+          {value: 3, name: 'Opção 3'},
+          {value: 3, name: 'Opção 3'},
+          {value: 3, name: 'Opção 3'},
+        ]}
+      />
+        valor selecionado= {selectedItem?.name}
+
     </>
   );
 }
