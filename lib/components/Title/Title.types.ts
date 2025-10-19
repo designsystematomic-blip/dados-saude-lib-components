@@ -1,8 +1,6 @@
-export type TitleProps = {
-  tag: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  weight?: "light" | "regular" | "semibold" | "bold";
+import { BaseComponent } from "../common.types";
+
+export interface TitleProps extends BaseComponent {
   content: string;
-  variant?: "primary" | "secondary" | "tertiary";
   color?: string;
-  align?: "left" | "center" | "right" | "justify";
 };

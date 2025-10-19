@@ -73,7 +73,10 @@ export default function Preview({
 
 					if (!fileUrl) {
 						return <div>
-							<Text content={`Não foi possível carregar a pré-visualização de ${file.name}`}  variant="secondary"/>
+							<Text 
+								content={`Não foi possível carregar a pré-visualização de ${file.name}`} 
+								fontFamily="secondary"
+							/>
 						</div>;
 					}
 

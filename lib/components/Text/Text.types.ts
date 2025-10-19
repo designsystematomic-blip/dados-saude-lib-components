@@ -1,8 +1,6 @@
-export type TextProps = {
+import { BaseComponent } from "../common.types";
+
+export interface TextProps extends BaseComponent {
   content?: string;
-  variant?: "primary" | "secondary" | "tertiary";
-  size?: "small" | "medium" | "large";
-  align?: "left" | "center" | "right" | "justify";
-  color?: string;
   children?: React.ReactNode;
 };

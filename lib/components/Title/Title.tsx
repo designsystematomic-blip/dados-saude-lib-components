@@ -1,37 +1,21 @@
-import { useMemo } from "react";
 import type { TitleProps } from "./Title.types";
-import toCapitalizeCase from "@lib/utils";
+import useBaseComponent from "@lib/hooks/useBaseComponent";
 
 function Title({
   tag = "h2",
-  weight,
   content,
-  align,
-  variant,
+  textAlign,
+  fontFamily,
+  fontWeight,
   color,
 }: TitleProps) {
   const CustomTag = tag;
 
-  const extraClasses = useMemo(() => {
-    let classes = "";
-
-    if (tag) {
-      classes += ` ${tag}`; // h1, h2, h3, h4, h5, h6
-    }
-
-    if (weight) {
-      classes += ` ${weight}`;
-    }
-
-    if (variant) {
-      classes += ` font${toCapitalizeCase(variant)}`; // fontPrimary, fontSecondary, fontTertiary
-    }
-
-    if (align) {
-      classes += ` text${toCapitalizeCase(align)}`; // textLeft, textCenter, textRight
-    }
-    return classes;
-  }, [variant, align]);
+  const { extraClasses } = useBaseComponent({
+    textAlign,
+    fontFamily,
+    fontWeight
+  });
 
   return (
     <CustomTag

@@ -94,8 +94,13 @@ function App() {
         onClose={() => setFiles([])}
         content={`Upload de ${files.length} arquivo(s) realizado com sucesso!`}
       />
+
+      <Text
+        fontFamily="secondary"
+        content="teste!!"
+      />
       
-      <UploadFile.Root>
+      {/* <UploadFile.Root>
         {files.length === 0 ? (
           <UploadFile.Input
             icon={<IconUploadFile fillColor="var(--button-bg-primary)"/>}
@@ -127,7 +132,12 @@ function App() {
                 type="button"
                 onClick={handleChangeFiles}
               />
-              <Text variant="secondary" size="medium" color="var(--color-quintenary)" content="ou"/>
+              <Text 
+                fontFamily="secondary" 
+                textSize="medium" 
+                textColor="var(--color-quintenary)" 
+                content="ou"
+              />
               <UploadFile.Input 
                 label="Adicionar mais fotos"
                 name="Adicionar mais fotos"
@@ -142,7 +152,12 @@ function App() {
 
             {process === 100 && files.map((file, index) => (
               <UploadFile.Root key={index}>
-                <Text variant="secondary" size="medium" color="var(--color-quintenary)" content={file.name} />
+                <Text 
+                  fontFamily="secondary" 
+                  textSize="medium" 
+                  textColor="var(--color-quintenary)" 
+                  content={file.name} 
+                />
               </UploadFile.Root>
             ))}
 
@@ -165,7 +180,7 @@ function App() {
           </Modal>
         )}
 
-      </UploadFile.Root>
+      </UploadFile.Root> */}
     </>
   );
 }

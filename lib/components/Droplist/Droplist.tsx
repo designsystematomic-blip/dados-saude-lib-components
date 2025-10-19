@@ -70,9 +70,9 @@ function Droplist ({
       {label && (
         <Text
           content={label}
-          variant={variant}
-          size={size}
-          color="var(--color-quartenary)"
+          fontFamily={variant}
+          textSize={size}
+          textColor="var(--color-quartenary)"
         />
       )}
       <div 
@@ -97,7 +97,7 @@ function Droplist ({
             {listTitle && (
               <Title 
                 tag="h2"
-                variant={variant}
+                fontFamily={variant}
                 content={listTitle}
               />
             )}

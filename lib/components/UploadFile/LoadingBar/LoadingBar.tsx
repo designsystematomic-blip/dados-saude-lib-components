@@ -45,15 +45,16 @@ const LoadingBar = ({
 
     <div className={styles.progressBar} aria-busy={progress <= 100 ? "true" : "false"} aria-describedby="progress-bar">
       {showPercentage && progress > 0 && (
-        <Text variant="secondary" size="medium" color='var(--color-quintenary)'>{progress}%</Text>
+        <Text 
+          fontFamily="secondary" textSize="medium" textColor='var(--color-quintenary)'>{progress}%</Text>
       )}
 
       <div className={styles.bar} style={{ backgroundColor: backgroundColor }}>
         <span className={styles.progress} style={{ width: `${progress}%`, backgroundColor: progressColor }} ></span>
       </div>
 
-      {loadingMessage && (progress > 0 && progress < 100) && <Text variant="secondary" size="medium" color='var(--color-sextenary)'>{loadingMessage}</Text>}
-      {loadedMessage && progress === 100 && <Text variant="secondary" size="medium" color='var(--color-sextenary)'>{loadedMessage}</Text>}
+      {loadingMessage && (progress > 0 && progress < 100) && <Text fontFamily="secondary" textSize="medium" textColor='var(--color-sextenary)'>{loadingMessage}</Text>}
+      {loadedMessage && progress === 100 && <Text fontFamily="secondary" textSize="medium" textColor='var(--color-sextenary)'>{loadedMessage}</Text>}
 
     </div>
 
