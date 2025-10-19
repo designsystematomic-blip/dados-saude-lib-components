@@ -1,4 +1,6 @@
-export type ButtonProps = {
+import { BaseComponent } from "../common.types";
+
+export interface ButtonProps extends BaseComponent {
   type: "button" | "submit" | "reset";
   iconLeft?: React.ReactNode;
   iconRight?: React.ReactNode;

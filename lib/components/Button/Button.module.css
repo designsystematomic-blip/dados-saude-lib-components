@@ -3,25 +3,18 @@
   border: none;
   cursor: pointer;
   border-radius: 50px;
-  font-weight: 500;
   position: relative;
-  font-family: var(--font-family-secondary);
   display: flex;
   align-items: center;
 }
 
 .primary {
-  font-size: 14px;
-  line-height: 18px;
   padding: 14px 20px;
   background-color: var(--button-bg-primary);
   color: var(--button-text-primary);
 }
 
 .secondary {
-  font-size: 16px;
-  line-height: 20px;
-  letter-spacing: 0;
   padding: 13px 20px;
   background-color: var(--button-bg-secondary);
   border: 1px solid var(--button-text-secondary);
@@ -29,10 +22,6 @@
 }
 
 .tertiary {
-  font-size: 14px;
-  line-height: 18px;
-  font-weight: 400;
-  letter-spacing: 0;
   padding: 0;
   background-color: transparent;
   border: none;

@@ -2,6 +2,7 @@ import { IconSpinner } from "@lib/icons";
 import styles from "./Button.module.css";
 import type { ButtonProps } from "./Button.types";
 import { useMemo } from "react";
+import useBaseComponent from "@lib/hooks/useBaseComponent";
 
 function Button({
   type = "button",
@@ -12,7 +13,10 @@ function Button({
   isDisabled,
   isLoading,
   onClick,
-  variant,
+  fontFamily = 'primary',
+  fontWeight = 'regular',
+  textSize = 'medium',
+  variant = "primary",
 }: ButtonProps) {
   const loadingColor = useMemo(
     () =>
@@ -22,14 +26,23 @@ function Button({
     [variant]
   );
 
+  const { extraClasses } = useBaseComponent({ 
+    fontFamily,
+    fontWeight,
+    textSize
+  });
+
   return (
     <button
       type={type}
       aria-label={ariaLabel}
       aria-disabled={isDisabled || isLoading}
-      className={`${styles.button} ${styles[variant || "primary"]} ${
-        isLoading ? styles.loading : ""
-      }`}
+      className={`
+        ${styles.button} 
+        ${styles[variant || "primary"]} 
+        ${isLoading ? styles.loading : ""} 
+        ${extraClasses}
+      `}
       disabled={isDisabled || isLoading}
       onClick={onClick}
     >
