@@ -2,6 +2,7 @@ import { useCallback, useMemo, useState } from "react";
 import { InputProps } from "./Input.types";
 import style from "./Input.module.css";
 import toCapitalizeCase from "@lib/utils";
+import useBaseComponent from "@lib/hooks/useBaseComponent";
 
 const Input = ({ 
 	label, 
@@ -11,9 +12,9 @@ const Input = ({
 	accept,
 	acceptDescription,
 	multiple = true,
-	variant,
-	size,
-	align,
+	fontFamily,
+	textSize,
+	textAlign,
 	buttonColor,
 	acceptDescriptionColor,
 	isDisabled = false,
@@ -26,22 +27,13 @@ const Input = ({
 		onChange(e);
 	}, [onChange]);
 
-	const extraClasses = useMemo(() => {
-		let classes = "";
-		if (align) {
-			classes += ` text${toCapitalizeCase(align)}`; // textLeft, textCenter, textRight
-		}
 
-		if (size) {
-			classes += ` text${toCapitalizeCase(size)}`; // textSmall, textMedium, textLarge
-		}
+	const { extraClasses } = useBaseComponent({
+    fontFamily,
+    textSize,
+		textAlign
+  });
 
-		if (variant) {
-			classes += ` font${toCapitalizeCase(variant)}`; // fontPrimary, fontSecondary, fontTertiary
-		}
-
-		return classes;
-	}, [variant, align, size]);
 
 	return (
 		<div className={style.inputContainer}>

@@ -1,4 +1,6 @@
-export type TextareaProps = {
+import { BaseComponent } from "../common.types";
+
+export interface TextareaProps extends BaseComponent {
   ariaLabel: string;
   id: string;
 	resize: boolean;
@@ -9,7 +11,5 @@ export type TextareaProps = {
   maxTextLength?: number;
   placeholder: string;
   style?: React.CSSProperties;
-	variant?: "primary" | "secondary" | "tertiary";
-  size?: "small" | "medium" | "large";
   color?: string;
 };

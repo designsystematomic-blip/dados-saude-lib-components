@@ -1,9 +1,9 @@
-import { useMemo, useRef, useState } from 'react';
+import { useState } from 'react';
 import styles from './Select.module.css';
 import type { SelectProps } from './Select.types';
-import toCapitalizeCase from '@lib/utils';
+import useBaseComponent from '@lib/hooks/useBaseComponent';
 
-function Select ({ id, ariaLabel, label, options, style, variant, size, isDisabled, defaultValue, ...props }: SelectProps) {
+function Select ({ id, ariaLabel, label, options, style, fontFamily, textSize, isDisabled, defaultValue, ...props }: SelectProps) {
 
   const [selectedValue, setSelectedValue] = useState(defaultValue || options[0]?.value || '');
 
@@ -11,20 +11,12 @@ function Select ({ id, ariaLabel, label, options, style, variant, size, isDisabl
     setSelectedValue(event.target.value);
   };
 
-  const extraClasses = useMemo(() => {
-    let classes = "";
-    if (size) {
-      classes += ` text${toCapitalizeCase(size)}`; // textSmall, textMedium, textLarge
-    }
+  const { extraClasses } = useBaseComponent({
+    fontFamily,
+    textSize
+  });
 
-    if (variant) {
-      classes += ` font${toCapitalizeCase(variant)}`; // fontPrimary, fontSecondary, fontTertiary
-    }
-
-    return classes;
-  }, [variant]);
-
-    return (
+  return (
     <div className={styles.container}>
       <label className={`${styles.label} ${extraClasses}`} htmlFor={id}>{label}</label>
       <select

@@ -1,4 +1,6 @@
-export type InputProps = {
+import { BaseComponent } from "@lib/components/common.types";
+
+export interface InputProps extends BaseComponent {
 	icon?: React.ReactNode;
 	label: string;
 	name: string;
@@ -11,10 +13,6 @@ export type InputProps = {
 
 	isDisabled?: boolean;
 	onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-
-	variant?: "primary" | "secondary" | "tertiary";
-  size?: "small" | "medium" | "large";
-  align?: "left" | "center" | "right" | "justify";
 
 	showFilesList?: boolean;
 	filesList?: File[] | null;

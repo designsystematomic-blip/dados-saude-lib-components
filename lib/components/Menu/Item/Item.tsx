@@ -1,26 +1,14 @@
 import type { ItemProps } from './Item.types';
 import styles from './Item.module.css';
-import { useMemo } from 'react';
-import toCapitalizeCase from '@lib/utils';
+import useBaseComponent from '@lib/hooks/useBaseComponent';
 
-const Item = ({ iconLeft, iconRight, children, name, align, size, variant, color, style }: ItemProps) => {
+const Item = ({ iconLeft, iconRight, children, name, fontFamily, textSize, textAlign, color, style }: ItemProps) => {
 
-  const extraClasses = useMemo(() => {
-    let classes = "";
-    if (align) {
-      classes += ` text${toCapitalizeCase(align)}`; // textLeft, textCenter, textRight
-    }
-
-    if (size) {
-      classes += ` text${toCapitalizeCase(size)}`; // textSmall, textMedium, textLarge
-    }
-
-    if (variant) {
-      classes += ` font${toCapitalizeCase(variant)}`; // fontPrimary, fontSecondary, fontTertiary
-    }
-
-    return classes;
-  }, [variant, align]);
+  const { extraClasses } = useBaseComponent({
+    fontFamily,
+    textAlign,
+    textSize
+  });
 
   return (
     <li 

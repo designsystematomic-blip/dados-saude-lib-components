@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import styles from './Textarea.module.css';
 import type { TextareaProps } from './Textarea.types';
 import toCapitalizeCase from '@lib/utils';
+import useBaseComponent from '@lib/hooks/useBaseComponent';
 
 function Textarea ({
     ariaLabel,
@@ -14,27 +15,18 @@ function Textarea ({
     maxTextLength, 
     placeholder,
     style,
-    variant,
-    size,
+    fontFamily,
+    textSize,
     color,
     ...props
   }: TextareaProps) {
 
-  const extraClasses = useMemo(() => {
-    let classes = "";
-    if (size) {
-      classes += ` text${toCapitalizeCase(size)}`; // textSmall, textMedium, textLarge
-    }
+  const { extraClasses } = useBaseComponent({
+    fontFamily,
+    textSize
+  });
 
-    if (variant) {
-      classes += ` font${toCapitalizeCase(variant)}`; // fontPrimary, fontSecondary, fontTertiary
-    }
-
-    return classes;
-  }, [variant, size]);
-
-
-    return (
+  return (
     <div className={styles.container}>
       <label className={`
         ${styles.label}

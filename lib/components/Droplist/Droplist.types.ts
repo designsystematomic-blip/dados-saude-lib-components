@@ -1,4 +1,6 @@
-export type DroplistProps = { 
+import { BaseComponent } from "../common.types";
+
+export interface DroplistProps extends BaseComponent { 
 	label?: string;
 	name: string;
 	placeholder: string;
@@ -7,8 +9,6 @@ export type DroplistProps = {
 	handleSelectItem: (item: Items) => void;
 	customClassName?: string;
 	width?: 'full' | 'half' | 'third';
-	variant?: "primary" | "secondary" | "tertiary";
-  size?: "small" | "medium" | "large";
   color?: string;
 };
 

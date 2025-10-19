@@ -100,7 +100,7 @@ function App() {
         content="teste!!"
       />
       
-      {/* <UploadFile.Root>
+      <UploadFile.Root>
         {files.length === 0 ? (
           <UploadFile.Input
             icon={<IconUploadFile fillColor="var(--button-bg-primary)"/>}
@@ -144,7 +144,7 @@ function App() {
                 id="add-more-files"
                 accept="image/*"
                 buttonColor="var(--bg-primary)"
-                size="medium"
+                textSize="medium"
                 onChange={handleFiles}
                 isDisabled={process !== 100}
               />
@@ -180,7 +180,7 @@ function App() {
           </Modal>
         )}
 
-      </UploadFile.Root> */}
+      </UploadFile.Root>
     </>
   );
 }

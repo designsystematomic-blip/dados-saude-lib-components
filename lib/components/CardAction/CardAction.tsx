@@ -1,21 +1,14 @@
-import toCapitalizeCase from '@lib/utils';
 import styles from './CardAction.module.css';
 import type { CardActionProps } from './CardAction.types';
-import { useMemo } from 'react';
+import useBaseComponent from '@lib/hooks/useBaseComponent';
 
-function CardAction ({ label, icon, onClick, variant, size, isDisabled }: CardActionProps) {
-  const extraClasses = useMemo(() => {
-    let classes = "";
-    if (size) {
-      classes += ` text${toCapitalizeCase(size)}`; // textSmall, textMedium, textLarge
-    }
+function CardAction ({ label, icon, onClick, fontFamily, textSize, isDisabled }: CardActionProps) {
 
-    if (variant) {
-      classes += ` font${toCapitalizeCase(variant)}`; // fontPrimary, fontSecondary, fontTertiary
-    }
+  const { extraClasses } = useBaseComponent( {
+    fontFamily,
+    textSize
+  });
 
-    return classes;
-  }, [variant, size]);
   return (
     <button type="button" onClick={onClick} disabled={isDisabled} className={`${styles.buttonCard} ${extraClasses}`}>
       {icon && <span className={styles.icon}>{icon}</span>}

@@ -1,4 +1,6 @@
-export type SelectProps = {
+import { BaseComponent } from "../common.types";
+
+export interface SelectProps extends BaseComponent {
   id: string;
   ariaLabel: string;
   labelId: string;
@@ -8,8 +10,6 @@ export type SelectProps = {
     label: string;
   }>;
   style?: React.CSSProperties;
-	variant?: "primary" | "secondary" | "tertiary";
-	size?: "small" | "medium" | "large";
 	isDisabled?: boolean;
 	defaultValue?: string;
 };

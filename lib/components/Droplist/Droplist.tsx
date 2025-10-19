@@ -5,6 +5,7 @@ import type { DroplistProps, Items } from './Droplist.types';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import Title from '../Title';
 import toCapitalizeCase from '@lib/utils';
+import useBaseComponent from '@lib/hooks/useBaseComponent';
 
 function Droplist ({ 
   label,
@@ -15,8 +16,8 @@ function Droplist ({
   handleSelectItem,
   customClassName, 
   width,
-  variant,
-  size
+  fontFamily,
+  textSize
 }: DroplistProps) {
 
   const [open, setOpen] = useState<boolean>(false);
@@ -50,19 +51,10 @@ function Droplist ({
     setOpen(false)
   }, [open, handleSelectItem]);
 
-  const extraClasses = useMemo(() => {
-    let classes = "";
-
-    if (variant) {
-      classes += ` font${toCapitalizeCase(variant)}`; // fontPrimary, fontSecondary, fontTertiary
-    }
-
-    if (size) {
-      classes += ` text${toCapitalizeCase(size)}`; // textSmall, textMedium, textLarge
-    }
-
-    return classes;
-  }, [variant, size]);
+  const {extraClasses} = useBaseComponent({
+    fontFamily,
+    textSize
+  });
 
 
   return (
@@ -70,8 +62,8 @@ function Droplist ({
       {label && (
         <Text
           content={label}
-          fontFamily={variant}
-          textSize={size}
+          fontFamily={fontFamily}
+          textSize={textSize}
           textColor="var(--color-quartenary)"
         />
       )}
@@ -97,7 +89,7 @@ function Droplist ({
             {listTitle && (
               <Title 
                 tag="h2"
-                fontFamily={variant}
+                fontFamily={fontFamily}
                 content={listTitle}
               />
             )}
