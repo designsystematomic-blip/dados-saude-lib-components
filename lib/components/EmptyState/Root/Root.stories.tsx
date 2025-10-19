@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import Root from './Root';
 
 const meta: Meta<typeof Root> = {
-    title: 'Components/Root',
+    title: 'Components/EmptyState/Root',
     component: Root,
     tags: ['autodocs'],
 };

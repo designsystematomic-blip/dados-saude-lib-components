@@ -1,31 +1,26 @@
-import {
-  Button,
-  Camera,
-  Divider,
-  Modal,
-  Snackbar,
-  Text,
-  UploadFile,
-  Wrapper
-} from '@lib/components';
-import { useDialog } from '@lib/hooks';
-import { IconUploadFile } from '@lib/icons';
-import { validateImage } from '@lib/utils';
-import { useCallback, useEffect, useState } from 'react';
+import { useDialog } from "@lib/hooks";
+import { IconUploadFile } from "@lib/icons";
+import { validateImage } from "@lib/utils";
+import { Meta, StoryObj } from "@storybook/react";
+import { useCallback, useState } from "react";
+import Button from "../Button";
+import Camera from "../Camera";
+import Divider from "../Divider";
+import Modal from "../Modal";
+import Snackbar from "../Snackbar";
+import Text from "../Text";
+import Wrapper from "../Wrapper";
+import UploadFile from "./";
 
-function App() {
-  const [files, setFiles] = useState<File[]>([]);
+const UploadFileMounted = () => {
+	const [files, setFiles] = useState<File[]>([]);
   const [errors, setErrors] = useState<string[]>([]);
   const modalPreviewId = 'modal-upload-file-preview';
   const modalCameraId = 'modal-camera';
 
   const { multiDialog, openDialog, closeDialog } = useDialog();
 
-  // const [openModal, setOpenModal] = useState<boolean>(false);
-
   const [process, setProcess] = useState<number>(0);
-
-  console.log('process', process);
 
   const handleFiles = async (
     e: React.ChangeEvent<HTMLInputElement>
@@ -70,27 +65,8 @@ function App() {
     openDialog(modalPreviewId);
   }, [openDialog]);
 
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && multiDialog.some((dialog) => dialog.id === modalPreviewId && dialog.isOpen)) {
-        closeDialog(modalPreviewId);
-      }
-    };
-
-    // Add event listener when component mounts or isOpen changes
-    document.addEventListener('keydown', handleKeyDown);
-
-    // Clean up event listener when component unmounts
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [multiDialog, closeDialog]);
-
-  console.log('openModal', multiDialog.some((dialog) => dialog.id === modalPreviewId && dialog.isOpen));
-
-
-  return (
-    <>
+	return (
+		<>
       <Snackbar
         isOpen={errors.length > 0}
         onClose={() => setErrors([])}
@@ -123,7 +99,13 @@ function App() {
       }}>
         <UploadFile.Root>
           {files.length === 0 ? (
-            <>
+            <Wrapper style={{
+							display: 'flex',
+							justifyContent: 'center',
+							alignItems: 'center',
+							gap: '16px',
+							flexWrap: 'wrap',
+						}}>
               <UploadFile.Input
                 icon={<IconUploadFile fillColor="var(--button-bg-primary)" />}
                 label="Selecione as fotos da galeria"
@@ -136,6 +118,7 @@ function App() {
                 buttonColor="var(--button-bg-primary)"
                 acceptDescriptionColor="var(--color-quintenary)"
                 filesList={files}
+								fontFamily="primary"
               />
               <Divider 
                 color="var(--color-border-primary)"
@@ -156,7 +139,7 @@ function App() {
                 type="button"
                 onClick={handleTakePhotos}
               />
-            </>
+            </Wrapper>
           ) : (
             <UploadFile.Root>
               <UploadFile.State
@@ -254,7 +237,21 @@ function App() {
         </UploadFile.Root>
       </Wrapper>
     </>
-  );
+	)
+
+
 }
 
-export default App;
+const meta: Meta<typeof UploadFile> = {
+  title: "Components/UploadFile/MountedPreview",
+  component: UploadFileMounted,
+  tags: ["autodocs"],
+};
+
+export default meta;
+
+type Story = StoryObj<typeof UploadFileMounted>;
+
+export const Default: Story = {
+  args: {},
+};

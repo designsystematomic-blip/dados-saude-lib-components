@@ -1,0 +1,21 @@
+.container {
+  position: relative;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  position: absolute;
+  bottom: 0;
+  background-color: #fff;
+  width: 100%;
+  padding: 16px;
+  margin: 0;
+}
+
+.btnContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}

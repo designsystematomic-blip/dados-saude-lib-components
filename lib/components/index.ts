@@ -19,3 +19,5 @@ export { default as Textarea } from "./Textarea";
 export { default as UploadFile } from "./UploadFile";
 export { default as Modal } from "./Modal";
 export { default as Checkbox } from "./Checkbox";
+export { default as Camera } from "./Camera";
+export { default as Divider } from "./Divider";
