@@ -16,3 +16,6 @@ export { default as VetorialImage } from "./VetorialImage";
 export { default as EmptyState } from "./EmptyState";
 export { default as Droplist } from "./Droplist";
 export { default as Textarea } from "./Textarea";
+export { default as UploadFile } from "./UploadFile";
+export { default as Modal } from "./Modal";
+export { default as Checkbox } from "./Checkbox";

@@ -1,1 +1,4 @@
-export type StateProps = { children?: React.ReactNode; };
+export type StateProps = { 
+	uploadState?: 'loading' | 'error' | 'success';
+	children?: React.ReactNode;
+};

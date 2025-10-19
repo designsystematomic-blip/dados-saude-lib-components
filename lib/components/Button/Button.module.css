@@ -28,6 +28,17 @@
   color: var(--button-text-secondary);
 }
 
+.tertiary {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  color: var(--button-bg-primary);
+}
+
 .button:disabled,
 .button[aria-disabled="true"] {
   background-color: var(--button-bg-disabled);

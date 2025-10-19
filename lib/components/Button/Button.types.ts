@@ -4,8 +4,8 @@ export type ButtonProps = {
   iconRight?: React.ReactNode;
   label: string;
   ariaLabel?: string;
-  variant?: "primary" | "secondary";
-  onClick?: () => void;
+  variant?: "primary" | "secondary" | "tertiary";
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   isDisabled?: boolean;
   isLoading?: boolean;
 };

@@ -1,140 +1,171 @@
-import { Button, Drawer, Droplist, Header, Input, Select, Text, Title } from "@lib/components";
-import { IconHamburguer, IconTulip } from "@lib/icons";
-import { useState } from "react";
+import { Button, Modal, Snackbar, Text, UploadFile, Wrapper } from "@lib/components";
+import {  IconUploadFile } from "@lib/icons";
+import { validateImage } from "@lib/utils";
+import { useCallback, useEffect, useState } from "react";
 
 function App() {
 
-  const [open, setOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState<{value: string | number; name: string}>();
+  const [files, setFiles] = useState<File[]>([]);
+	const [errors, setErrors] = useState<string[]>([]);
 
-  const handleSelectItem = (item: {value: string | number; name: string}) => {
-    setSelectedItem(item)
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
+  const [process, setProcess] = useState<number>(0);
+
+  console.log('process', process)
+
+  const handleFiles = async (e: React.ChangeEvent<HTMLInputElement>): Promise<void> => {
+
+    const newFiles = e.target.files ? Array.from(e.target.files) : [];
+
+    for (let i = 0; i < newFiles.length; i++) {
+      const file = newFiles[i];
+
+      try {
+
+        const fileCheck = await validateImage(file, {
+          maxWidth: 4000,
+          maxHeight: 4000,
+          minWidth: 50,
+          minHeight: 50,
+          maxSize: 5 * 1024 * 1024, // 5MB
+          allowedFormats: ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'application/pdf']
+        });
+
+        if (!fileCheck.isValid) {
+          setErrors(prev => [...prev, `${file.name}: ${fileCheck.error}`]);
+        } else {
+          setFiles(prev => [...prev, file]);
+        }
+
+      } catch (error) {
+        console.log('Error', error);
+      }
+    }
+
   }
+
+  const handleChangeFiles = useCallback((): void => {
+    setOpenModal(!openModal);
+  }, [openModal]);
+
+  const handleValidationError = useCallback((file: File, error: string) => {
+    setErrors(prev => [...prev, `${file.name}: ${error}`]);
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && open) {
+        setOpenModal(!open);
+      }
+    };
+
+    // Add event listener when component mounts or isOpen changes
+    document.addEventListener('keydown', handleKeyDown);
+
+    // Clean up event listener when component unmounts
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [open]); 
+
+  console.log('openModal', openModal)
 
   return (
     <>
-      {/* <Text content="This is a sample text component using the Poppins font." />
-      <div
-        className="button-group"
-        style={{ display: "flex", gap: "10px", marginTop: "20px" }}
-      >
-        <Button
-          ariaLabel="Sample Button"
-          label="Variant Primary"
-          icon={<span>🚀</span>}
-          onClick={() => alert("Button clicked!")}
-        />
-        <Button
-          ariaLabel="Sample Button"
-          label="Variant Secondary"
-          icon={<span>🚀</span>}
-          onClick={() => alert("Button clicked!")}
-          variant="secondary"
-        />
-        <Button
-          ariaLabel="Sample Button"
-          isDisabled={true}
-          label="Disabled"
-          icon={<span>🚀</span>}
-          onClick={() => alert("Button clicked!")}
-          variant="secondary"
-        />
-        <Button
-          ariaLabel="Sample Button"
-          isDisabled={true}
-          isLoading={true}
-          label="On Loading"
-          icon={<span>🚀</span>}
-          onClick={() => alert("Button clicked!")}
-          variant="secondary"
-        />
-      </div>
-
-      <div>
-        <Input
-          label="Senha"
-          id="senha"
-          ariaLabel="Senha"
-          labelId={"senha"}
-          handleOnChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-            setPassword(event.target.value);
-          }}
-          value={password}
-          maxTextLength={50}
-          description=""
-          placeholder="Digite a sua senha"
-          type="password"
-          protect={true}
-        />
-      </div> */}
-
-      {/* <Header.Root>
-        <Header.Wrapper>
-          <Header.Logo
-            type="svg"
-            svg={<IconTulip />}
-            size="regular"
-            alt="Tulip Ion"
-          />
-          <Title tag="h2" content="Início" />
-          <Header.Action
-            onClick={() => console.log("aciton")}
-            icon={<IconHamburguer />}
-            ariaLabel="Action"
-            name="actio"
-          />
-        </Header.Wrapper>
-
-        <button type="button" onClick={() => setOpen(true)}>Open Drawer</button>
-
-        <Drawer
-          isOpen={open}
-          onClose={() => {
-            console.log('drawer overlay') 
-            setOpen(!open)
-          }}
-          position="left"
-          width="full"
-        >
-
-          <button type="button" onClick={() => {
-            console.log('drawer overlay') 
-            setOpen(!open)
-          }}>Close Drawer</button>
-          <p>Drawer Content</p>
-
-        </Drawer>
-
-      </Header.Root> */}
-
-
-      <Droplist
-
-        placeholder="Selecione a especialidade"
-      
-        handleSelectItem={handleSelectItem}
-        label="Especialidade (Opcional)"
-        name="Selectione o tipo"
-        listTitle="Teste"
-        list={[
-          {value: 1, name: 'Opção 1'},
-          {value: 2, name: 'Opção 2'},
-          {value: 3, name: 'Opção 3'},
-          {value: 3, name: 'Opção 3'},
-          {value: 3, name: 'Opção 3'},
-          {value: 3, name: 'Opção 3'},
-          {value: 3, name: 'Opção 3'},
-          {value: 3, name: 'Opção 3'},
-          {value: 3, name: 'Opção 3'},
-          {value: 3, name: 'Opção 3'},
-          {value: 3, name: 'Opção 3'},
-          {value: 3, name: 'Opção 3'},
-          {value: 3, name: 'Opção 3'},
-          {value: 3, name: 'Opção 3'},
-        ]}
+      <Snackbar
+        isOpen={errors.length > 0}
+        onClose={() => setErrors([])}
+        type="error"
+        content={
+          <>
+          {errors.map((error) => (
+            <Text 
+              content={error}
+            />
+          ))}
+          </>
+        }
       />
-        valor selecionado= {selectedItem?.name}
 
+      <Snackbar 
+        type="success"
+        isOpen={files.length > 0 && process === 100}
+        onClose={() => setFiles([])}
+        content={`Upload de ${files.length} arquivo(s) realizado com sucesso!`}
+      />
+      
+      <UploadFile.Root>
+        {files.length === 0 ? (
+          <UploadFile.Input
+            icon={<IconUploadFile fillColor="var(--button-bg-primary)"/>}
+            label="Selecione as fotos da galeria"
+            name="file" 
+            id="file" 
+            accept="image/*,application/pdf"
+            acceptDescription="PNG, JPG ou PDF"
+            multiple 
+            onChange={handleFiles}
+            buttonColor="var(--button-bg-primary)"
+            acceptDescriptionColor="var(--color-quintenary)"
+            filesList={files}
+          />
+        ) : (
+          <UploadFile.Root>
+            <UploadFile.State uploadState={process === 100 ? 'success' : 'loading'} />
+            <UploadFile.LoadingBar
+              onChange={(progress) => setProcess(progress)}
+              showPercentage={true}
+              files={files}
+              loadingMessage="Carregando..."
+              loadedMessage="Carregamento completo"
+            />
+            <Wrapper style={{ display: 'flex', gap: '4px', justifyContent: 'center', alignItems: 'center', marginTop: '16px' }}>
+              <Button 
+                variant="tertiary" 
+                label="Trocar fotos"
+                type="button"
+                onClick={handleChangeFiles}
+              />
+              <Text variant="secondary" size="medium" color="var(--color-quintenary)" content="ou"/>
+              <UploadFile.Input 
+                label="Adicionar mais fotos"
+                name="Adicionar mais fotos"
+                id="add-more-files"
+                accept="image/*"
+                buttonColor="var(--bg-primary)"
+                size="medium"
+                onChange={handleFiles}
+                isDisabled={process !== 100}
+              />
+            </Wrapper>
+
+            {process === 100 && files.map((file, index) => (
+              <UploadFile.Root key={index}>
+                <Text variant="secondary" size="medium" color="var(--color-quintenary)" content={file.name} />
+              </UploadFile.Root>
+            ))}
+
+          </UploadFile.Root>
+        )}
+
+        {openModal && (
+          <Modal 
+            id="upload-file-preview" 
+            isOpen={openModal} 
+            onClose={() => setOpenModal(false)} 
+            width="large"
+            customClassName="round"
+          >
+          <UploadFile.Preview
+            title={`Pré-visualização dos arquivos (${files.length})`}
+            files={files}
+            onRemove={(file) => setFiles(prev => prev.filter(f => f.name !== file.name))}
+          />
+          </Modal>
+        )}
+
+      </UploadFile.Root>
     </>
   );
 }

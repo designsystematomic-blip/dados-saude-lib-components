@@ -1,16 +1,22 @@
 :root {
-  --bg-primary: #0476d9;
-  --bg-seconday: #a4a4a4;
-  --bg-tertiary: #ffffff;
-  --bg-disabled-first: #a4a4a4;
-  --bg-disabled-secondary: #d1d1d1;
 
   --color-primary: #ffffff;
   --color-secondary: #6c757d;
   --color-tertiary: #a1abb2;
   --color-quartenary: #3c4043;
+  --color-quintenary: #969696;
+  --color-sextenary: #303131;
+
   --color-disabled: #a4a4a4;
   --color-disabled-bg2: #d1d1d1;
+
+  --bg-primary: #0476d9;
+  --bg-secondary: #a4a4a4;
+  --bg-tertiary: #ffffff;
+  --bg-quartenary: #D9D9D9;
+  
+  --bg-disabled-first: #a4a4a4;
+  --bg-disabled-secondary: #d1d1d1;
 
   --color-text-error: #ff4b4b;
 
