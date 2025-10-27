@@ -1,7 +1,7 @@
-import type { LoadingBarProps } from './LoadingBar.types';
-import styles from './LoadingBar.module.css';
-import { useEffect, useState } from 'react';
 import { Text } from '@lib/main';
+import { useEffect, useState } from 'react';
+import styles from './LoadingBar.module.css';
+import type { LoadingBarProps } from './LoadingBar.types';
 
 const LoadingBar = ({ 
   files, 
@@ -14,32 +14,36 @@ const LoadingBar = ({
 }: LoadingBarProps) => {
   const [progress, setProgress] = useState(0);
 
-    useEffect(() => {
-      if (files?.length === 0) {
-        setProgress(0);
-        if (onChange) onChange(0);
-        return;
-      }
-  
-      const interval = setInterval(() => {
-        setProgress(prev => {
-          const newProgress = prev + 10;
-          if (onChange) onChange(newProgress);
-          if (newProgress >= 100) {
-            clearInterval(interval);
-            return 100;
-          }
-          return newProgress;
-        });
-      }, 200);
-  
-      return () => {
-        setProgress(0);
-        if (onChange) onChange(0);
-        clearInterval(interval);
-      };
-  
-    }, [files]);
+  // Effect para gerenciar o progresso da barra
+  useEffect(() => {
+    if (files?.length === 0) {
+      setProgress(0);
+      return;
+    }
+
+    const interval = setInterval(() => {
+      setProgress(prev => {
+        const newProgress = prev + 10;
+        if (newProgress >= 100) {
+          clearInterval(interval);
+          return 100;
+        }
+        return newProgress;
+      });
+    }, 200);
+
+    return () => {
+      clearInterval(interval);
+      setProgress(0);
+    };
+  }, [files]);
+
+  // Effect separado para notificar mudanças de progresso
+  useEffect(() => {
+    if (onChange) {
+      onChange(progress);
+    }
+  }, [progress, onChange]);
 
   return (
 

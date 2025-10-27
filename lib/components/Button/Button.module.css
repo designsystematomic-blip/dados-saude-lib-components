@@ -29,7 +29,7 @@
 }
 
 .button:disabled,
-.button[aria-disabled="true"] {
+.button[aria-disabled='true'] {
   background-color: var(--button-bg-disabled);
   color: var(--button-text-disabled);
   cursor: not-allowed;
@@ -47,11 +47,14 @@
 }
 
 .iconRight {
-  margin-left: 8px;
 }
 
 .iconLeft {
   margin-right: 8px;
+}
+
+.label + .iconRight {
+  margin-left: 8px;
 }
 
 .loading .icon,

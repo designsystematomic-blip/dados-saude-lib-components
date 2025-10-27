@@ -1,25 +1,7 @@
-export interface ImageValidationResult {
-  isValid: boolean;
-  error?: string;
-  details?: {
-    width?: number;
-    height?: number;
-    size?: number;
-    format?: string;
-  };
-}
-
-export interface ValidationOptions {
-  maxWidth?: number;
-  maxHeight?: number;
-  minWidth?: number;
-  minHeight?: number;
-  maxSize?: number; // em bytes
-  allowedFormats?: string[];
-}
+import { ImageValidationResult, ValidationOptions } from './fileValidation.types';
 
 // Assinaturas de arquivos (magic numbers) para diferentes formatos de imagem
-const IMAGE_SIGNATURES = {
+const FILES_SIGNATURES = {
   'image/jpeg': [
     [0xFF, 0xD8, 0xFF], // JPEG
   ],
@@ -53,12 +35,12 @@ const IMAGE_SIGNATURES = {
 /**
  * Valida se o arquivo é uma imagem válida através da assinatura do arquivo
  */
-export async function validateImageSignature(file: File): Promise<boolean> {
+export async function validateFileSignature(file: File): Promise<boolean> {
   try {
     const arrayBuffer = await file.slice(0, 20).arrayBuffer();
     const bytes = new Uint8Array(arrayBuffer);
     
-    const signatures = IMAGE_SIGNATURES[file.type as keyof typeof IMAGE_SIGNATURES];
+    const signatures = FILES_SIGNATURES[file.type as keyof typeof FILES_SIGNATURES];
     if (!signatures) return false;
     
     return signatures.some(signature => {
@@ -73,7 +55,7 @@ export async function validateImageSignature(file: File): Promise<boolean> {
 /**
  * Valida se a imagem pode ser carregada corretamente
  */
-export function validateImageLoad(file: File): Promise<ImageValidationResult> {
+export function validateFileLoad(file: File): Promise<ImageValidationResult> {
   return new Promise((resolve) => {
     const img = new Image();
     const url = URL.createObjectURL(file);
@@ -125,9 +107,9 @@ export function validateImageLoad(file: File): Promise<ImageValidationResult> {
 }
 
 /**
- * Validação completa de imagem
+ * Validação completa de arquivo
  */
-export async function validateImage(
+export async function validateFile(
   file: File, 
   options: ValidationOptions = {}
 ): Promise<ImageValidationResult> {
@@ -136,7 +118,7 @@ export async function validateImage(
     maxHeight = 8000,
     minWidth = 10,
     minHeight = 10,
-    maxSize = 10 * 1024 * 1024, // 10MB
+    // maxSize = 10 * 1024 * 1024, // 10MB
     allowedFormats = ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/bmp', 'image/tiff', 'image/svg+xml', 'application/pdf']
   } = options;
 
@@ -164,7 +146,7 @@ export async function validateImage(
   }
 
   // 3. Validar assinatura do arquivo
-  const hasValidSignature = await validateImageSignature(file);
+  const hasValidSignature = await validateFileSignature(file);
   if (!hasValidSignature) {
     return {
       isValid: false,
@@ -183,7 +165,7 @@ export async function validateImage(
 		};
 	}
 
-  const loadResult = await validateImageLoad(file);
+  const loadResult = await validateFileLoad(file);
   if (!loadResult.isValid) {
     return loadResult;
   }
@@ -213,16 +195,16 @@ export async function validateImage(
 }
 
 /**
- * Hook para validação de múltiplas imagens
+ * Hook para validação de múltiplos arquivos
  */
-export async function validateImages(
+export async function validateFiles(
   files: File[], 
   options?: ValidationOptions
 ): Promise<Map<string, ImageValidationResult>> {
   const results = new Map<string, ImageValidationResult>();
   
   const validationPromises = files.map(async (file) => {
-    const result = await validateImage(file, options);
+    const result = await validateFile(file, options);
     results.set(file.name, result);
     return { file, result };
   });

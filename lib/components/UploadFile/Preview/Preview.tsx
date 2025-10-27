@@ -1,13 +1,15 @@
+import { Button, Checkbox, Text, Title } from "@lib/main";
 import { useEffect, useState } from "react";
-import { PreviewProps } from "./Preview.types";
-import styles from "./Preview.module.css";
-import { Button, Checkbox, Text } from "@lib/main";
 import FileItem from "../FileItem";
+import styles from "./Preview.module.css";
+import { PreviewProps } from "./Preview.types";
 
 export default function Preview({ 
 	title, 
 	files, 
-	onRemove 
+	onRemove,
+	fontFamily,
+	textSize
 }: PreviewProps) {
 
 	const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
@@ -30,7 +32,7 @@ export default function Preview({
 		return () => {
 			newUrls.forEach(url => URL.revokeObjectURL(url));
 		};
-	}, [files]);
+	}, [fileUrls, files]);
 
 	const handleFileSelection = (file: File, isSelected: boolean) => {
 		if (isSelected) {
@@ -56,12 +58,14 @@ export default function Preview({
 	return (
 		<div className={styles.container}>
 			<div className={styles.header}>
-				{title && <h3>{title}</h3>}
+				{title && <Title tag="h3" content={title} fontFamily={fontFamily} textSize={textSize} />}
 				{selectedFiles.length > 0 && (
 					<Button
 						type="button"
 						onClick={handleRemoveSelected}
 						label={`Remover Selecionados (${selectedFiles.length})`}
+						fontFamily={fontFamily}
+						textSize={textSize}
 					/>
 				)}
 			</div>
@@ -75,7 +79,8 @@ export default function Preview({
 						return <div>
 							<Text 
 								content={`Não foi possível carregar a pré-visualização de ${file.name}`} 
-								fontFamily="secondary"
+								fontFamily={fontFamily}
+								textSize={textSize}
 							/>
 						</div>;
 					}
@@ -90,7 +95,9 @@ export default function Preview({
 								onChange={(checked) => handleFileSelection(file, checked)}
 								disabled={false}
 								customClassName={styles.checkbox}
-								color="var(--color-quartenary)"
+								textColor="var(--color-quartenary)"
+								fontFamily={fontFamily}
+								textSize={textSize}
 							/>
 							
 							<div className={styles.filePreview}>

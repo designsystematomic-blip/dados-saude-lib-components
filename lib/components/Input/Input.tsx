@@ -1,13 +1,14 @@
 import { IconCancel, IconEye } from "@lib/icons";
+import { useMemo, useState } from "react";
 import styles from "./Input.module.css";
 import type { InputProps } from "./Input.types";
-import { useMemo, useState } from "react";
 
 function Input({
   id = "id-input",
   ariaLabel,
   labelId,
   label = "label",
+  showLabel = true,
   placeholder = "",
   description = "",
   height = '42px',
@@ -18,6 +19,10 @@ function Input({
   ...props
 }: InputProps) {
   const [showPassword, setShowPassword] = useState(false);
+
+  const test = props;
+
+  console.log(test);
 
   const inputType = useMemo(() => {
 
@@ -30,9 +35,11 @@ function Input({
 
   return (
     <div className={styles.container + " " + styles.inputGroup}>
-      <label className={styles.label} htmlFor={id} id={labelId}>
-        <span>{label}</span>
-      </label>
+      {showLabel && (
+        <label className={styles.label} htmlFor={id} id={labelId}>
+          <span>{label}</span>
+        </label>
+      )}
       <div className={styles.inputContainer}>
         <input
           className={`${styles.input} ${hasError ? styles.inputError : ""}`}
@@ -46,7 +53,7 @@ function Input({
           style={{ height }}
           {...props}
         />
-        {hasError && (
+        {hasError && type !== 'date' && (
           <button type="button" aria-label="clear input" className={styles.buttonClear} onClick={handleClear}>
             <IconCancel fillColor="var(--color-text-error)" />
           </button> 

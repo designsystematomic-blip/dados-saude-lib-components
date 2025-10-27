@@ -4,4 +4,5 @@ export type LogoProps = {
   svg?: React.ReactNode;
   size: "slim" | "regular" | "medium" | "large";
   alt: string;
+  url?: string;
 };

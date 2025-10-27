@@ -6,10 +6,11 @@ export interface DroplistProps extends BaseComponent {
 	placeholder: string;
 	listTitle?: string;
 	list: Items[];
-	handleSelectItem: (item: Items) => void;
 	customClassName?: string;
 	width?: 'full' | 'half' | 'third';
   color?: string;
+  hasError?: boolean;
+	handleSelectItem: (item: Items) => void;
 };
 
 export type Items = {

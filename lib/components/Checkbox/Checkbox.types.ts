@@ -1,4 +1,6 @@
-export type CheckboxProps = { 
+import { BaseComponent } from "../common.types";
+
+export interface CheckboxProps extends BaseComponent { 
 	id: string;
 	ariaLabel: string;
 	label: string;
@@ -6,5 +8,4 @@ export type CheckboxProps = {
 	onChange: (checked: boolean) => void;
 	disabled?: boolean;
 	customClassName?: string;
-	color?: string;
 };

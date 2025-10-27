@@ -1,11 +1,10 @@
+import useBaseComponent from '@lib/hooks/useBaseComponent';
 import { IconChevronDown } from '@lib/icons';
+import { useCallback, useEffect, useState } from 'react';
 import Text from '../Text';
+import Title from '../Title';
 import styles from './Droplist.module.css';
 import type { DroplistProps, Items } from './Droplist.types';
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import Title from '../Title';
-import toCapitalizeCase from '@lib/utils';
-import useBaseComponent from '@lib/hooks/useBaseComponent';
 
 function Droplist ({ 
   label,
@@ -17,7 +16,8 @@ function Droplist ({
   customClassName, 
   width,
   fontFamily,
-  textSize
+  textSize,
+  hasError
 }: DroplistProps) {
 
   const [open, setOpen] = useState<boolean>(false);
@@ -49,7 +49,7 @@ function Droplist ({
     handleSelectItem(item);
     setButtonPlaceholder(item.name);
     setOpen(false)
-  }, [open, handleSelectItem]);
+  }, [handleSelectItem]);
 
   const {extraClasses} = useBaseComponent({
     fontFamily,
@@ -78,7 +78,7 @@ function Droplist ({
           type="button" 
           name={name} 
           aria-label={label ?? name}
-          className={`${styles.button} ${extraClasses}`}
+          className={`${styles.button} ${extraClasses} ${hasError ? styles.error : ""}`}
           onClick={handleOpen}
         >
           <span>{buttonPlaceholder}</span>

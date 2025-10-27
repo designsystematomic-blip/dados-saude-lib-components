@@ -1,9 +1,9 @@
+import react from "@vitejs/plugin-react";
 import { glob } from "glob";
-import { defineConfig } from "vite";
 import path, { resolve } from "path";
 import { fileURLToPath } from "url";
+import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
-import react from "@vitejs/plugin-react";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 
@@ -48,7 +48,7 @@ export default defineConfig({
       cssFileName: "style",
     },
     rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime"],
+      external: ["react", "react-dom", "react/jsx-runtime", "react-webcam"],
       // experimentalCacheExpiry: 20,
       input: Object.fromEntries(
         glob

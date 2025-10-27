@@ -31,6 +31,7 @@
       "require": "./dist/main.js"
     },
     "./components": "./dist/components/index.js",
+    "./hooks": "./dist/hooks/index.js",
     "./icons": "./dist/icons/index.js",
     "./styles/*": "./dist/styles/*",
     "./assets/*": "./dist/assets/*"
@@ -45,7 +46,8 @@
   ],
   "peerDependencies": {
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-webcam": "^7.2.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.1",

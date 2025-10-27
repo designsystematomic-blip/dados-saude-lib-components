@@ -10,7 +10,7 @@ import {
 } from '@lib/components';
 import { useDialog } from '@lib/hooks';
 import { IconUploadFile } from '@lib/icons';
-import { validateImage } from '@lib/utils';
+import { validateFile } from '@lib/utils';
 import { useCallback, useEffect, useState } from 'react';
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
       const file = newFiles[i];
 
       try {
-        const fileCheck = await validateImage(file, {
+        const fileCheck = await validateFile(file, {
           maxWidth: 4000,
           maxHeight: 4000,
           minWidth: 50,

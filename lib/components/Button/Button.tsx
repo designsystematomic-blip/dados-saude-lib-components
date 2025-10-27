@@ -1,8 +1,8 @@
+import useBaseComponent from "@lib/hooks/useBaseComponent";
 import { IconSpinner } from "@lib/icons";
+import { useMemo } from "react";
 import styles from "./Button.module.css";
 import type { ButtonProps } from "./Button.types";
-import { useMemo } from "react";
-import useBaseComponent from "@lib/hooks/useBaseComponent";
 
 function Button({
   type = "button",
@@ -47,7 +47,7 @@ function Button({
       onClick={onClick}
     >
       {iconLeft && <span className={`${styles.icon} ${styles.iconLeft}`}>{iconLeft}</span>}
-      <span className={styles.label}>{label}</span>
+      {label && (<span className={styles.label}>{label}</span>)}
       {iconRight && <span className={`${styles.icon} ${styles.iconRight}`}>{iconRight}</span>}
       {isLoading && (
         <span className={styles.spinner}>

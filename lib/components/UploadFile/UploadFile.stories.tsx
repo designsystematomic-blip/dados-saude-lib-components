@@ -1,6 +1,6 @@
 import { useDialog } from "@lib/hooks";
 import { IconUploadFile } from "@lib/icons";
-import { validateImage } from "@lib/utils";
+import { validateFile } from "@lib/utils";
 import { Meta, StoryObj } from "@storybook/react";
 import { useCallback, useState } from "react";
 import Button from "../Button";
@@ -31,7 +31,7 @@ const UploadFileMounted = () => {
       const file = newFiles[i];
 
       try {
-        const fileCheck = await validateImage(file, {
+        const fileCheck = await validateFile(file, {
           maxWidth: 4000,
           maxHeight: 4000,
           minWidth: 50,
@@ -184,6 +184,20 @@ const UploadFileMounted = () => {
                   isDisabled={process !== 100}
                 />
               </Wrapper>
+
+							<>
+							<Text 
+								content="Fotos anexadas:"
+							/>
+							{process === 100 && files.map(file => (
+									<Text 
+										content={file.name}
+										fontFamily="primary"
+										textSize="medium"
+									/>
+								))}
+							</>
+
             </UploadFile.Root>
           )}
 

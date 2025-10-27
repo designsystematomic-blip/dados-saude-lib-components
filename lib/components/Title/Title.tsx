@@ -1,5 +1,5 @@
-import type { TitleProps } from "./Title.types";
 import useBaseComponent from "@lib/hooks/useBaseComponent";
+import type { TitleProps } from "./Title.types";
 
 function Title({
   tag = "h2",
@@ -7,20 +7,21 @@ function Title({
   textAlign,
   fontFamily,
   fontWeight,
-  color,
+  textColor,
 }: TitleProps) {
   const CustomTag = tag;
 
   const { extraClasses } = useBaseComponent({
     textAlign,
     fontFamily,
-    fontWeight
+    fontWeight,
+    tag
   });
 
   return (
     <CustomTag
       className={extraClasses}
-      style={{ color: color ? color : "inherit" }}
+      style={{ color: textColor ? textColor : "inherit" }}
     >
       {content}
     </CustomTag>
