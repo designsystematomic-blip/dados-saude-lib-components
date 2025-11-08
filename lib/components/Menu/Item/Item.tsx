@@ -20,7 +20,7 @@ const Item = ({ iconLeft, iconRight, children, name, fontFamily, textSize, textA
     >
       <div className={`${styles.itemGroupOne} ${styles.flex}`}>
         {iconLeft && (<span className={`${styles.icon} ${styles.iconLeft}`}>{iconLeft}</span>)}
-        {name && name}
+        {name && (<span className={styles.itemName}>{name}</span>)}
       </div>
       {children && children}
       {iconRight && (<span className={`${styles.icon} ${styles.iconRight}`}>{iconRight}</span>)}
