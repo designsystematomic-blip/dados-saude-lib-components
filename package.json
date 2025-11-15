@@ -5,7 +5,11 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jubilly/dados-saude-lib-components.git"
+    "url": "https://github.com/designsystematomic-blip/dados-saude-lib-components.git"
+  },
+  "author": {
+    "name": "Amanda Prates Caetano",
+    "email": "amandaprates1997@gmail.com"
   },
   "scripts": {
     "dev": "vite",
