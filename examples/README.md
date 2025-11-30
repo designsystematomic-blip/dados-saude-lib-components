@@ -20,5 +20,5 @@ npm run dev
 ```
 
 Observações:
-- Os exemplos usam o alias `@lib` configurado em `vite.config.ts`. Se você estiver consumindo a lib como pacote (após publicar), troque os imports para `import { Button } from 'dados-saude'`.
+- Os exemplos usam o alias `@lib` configurado em `vite.config.ts`. Se você estiver consumindo a lib como pacote (após publicar), troque os imports para `import { Button } from 'design-system-atomic'`.
 - Alguns exemplos (como `Camera`) dependem de peer-dependencies (por exemplo `react-webcam`) — instale no projeto host se necessário.
