@@ -1,6 +1,6 @@
-import useBaseComponent from '@lib/hooks/useBaseComponent';
 import styles from './Textarea.module.css';
 import type { TextareaProps } from './Textarea.types';
+import useBaseComponent from '@lib/hooks/useBaseComponent';
 
 function Textarea({
   ariaLabel,
@@ -25,18 +25,14 @@ function Textarea({
 
   return (
     <div className={styles.container}>
-      <label
-        className={`
+      <label htmlFor={id} className={`
         ${styles.label}
         ${extraClasses}
-      `}
-        htmlFor={id}
-        id={labelId}
-      >
+      `}>
         <span>{label}</span>
       </label>
-      <textarea
-        name={id}
+      <textarea 
+        name={ariaLabel}
         id={id}
         className={`
           ${styles.textArea} 
