@@ -7,7 +7,7 @@ function Title({
   textAlign,
   fontFamily,
   fontWeight,
-  textColor,
+  style
 }: TitleProps) {
   const CustomTag = tag;
 
@@ -21,7 +21,7 @@ function Title({
   return (
     <CustomTag
       className={extraClasses}
-      style={{ color: textColor ? textColor : "inherit" }}
+      style={{ ...style }}
     >
       {content}
     </CustomTag>
