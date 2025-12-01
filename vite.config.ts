@@ -43,7 +43,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, "lib/main.ts"),
       formats: ["es"],
-      name: "dados-saude",
+      name: "design-system-atomic",
       fileName: (format, entryName) => `${entryName}.${format}.js`,
       cssFileName: "style",
     },
