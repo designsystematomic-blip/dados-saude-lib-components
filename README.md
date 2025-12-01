@@ -7,6 +7,7 @@
 ## **Pré-requisitos (O que instalar na máquina)**
 
 ### 1. Node.js
+
 - **Versão recomendada:** Node.js 18.x ou superior
 - **Download:** https://nodejs.org/
 - **Como verificar se está instalado:**
@@ -16,6 +17,7 @@ node --version
 ```
 
 ### 2. NPM (Node Package Manager)
+
 - Vem junto com Node.js
 - **Versão recomendada:** npm 9.x ou superior (confira em `package.json`: `npm 11.6.0+`)
 - **Como verificar:**
@@ -25,10 +27,12 @@ npm --version
 ```
 
 ### 3. Git (opcional, mas recomendado)
+
 - Para clonar o repositório e fazer contribuições
 - **Download:** https://git-scm.com/
 
 ### 4. Editor de Código (recomendado: VS Code)
+
 - **Download:** https://code.visualstudio.com/
 - **Extensões recomendadas:**
   - ES7+ React/Redux/React-Native snippets
@@ -41,17 +45,20 @@ npm --version
 ## **Guia Rápido de Instalação**
 
 ### 1. Clonar o repositório
+
 ```cmd
-git clone https://github.com/designsystematomic-blip/dados-saude-lib-components-2.git
-cd dados-saude-lib-components-2
+git clone https://github.com/designsystematomic-blip/dados-saude-lib-components.git
+cd dados-saude-lib-components
 ```
 
 ### 2. Instalar dependências
+
 ```cmd
 npm install
 ```
 
 Isso instala automaticamente:
+
 - **React** e **React DOM** (peer dependencies)
 - **Vite** (build tool)
 - **TypeScript** (tipagem)
@@ -61,6 +68,7 @@ Isso instala automaticamente:
 - Todas as outras devDependencies listadas em `package.json`
 
 ### 3. Verificar instalação
+
 ```cmd
 npm run build
 ```
@@ -72,14 +80,17 @@ Se não houver erros, está pronto para usar!
 ## **Dependências do Projeto (do `package.json`)**
 
 ### Peer Dependencies (obrigatórias no projeto consumidor)
+
 - **React** ^19.1.0
 - **React DOM** ^19.1.0
 - **react-webcam** ^7.2.0 (para componente Camera)
 
 ### Runtime Dependencies
+
 - **react-webcam** ^7.2.0 (para captura de câmera)
 
 ### Build & Development Tools
+
 - **Vite** ^7.1.7 (bundler)
 - **TypeScript** ~5.8.3 (linguagem)
 - **Storybook** ^9.1.8 (documentação de componentes)
@@ -91,6 +102,7 @@ Se não houver erros, está pronto para usar!
 ---
 
 **Ferramentas e Dependências de Desenvolvimento**
+
 - Build: `vite` e `rollup` (via Vite internamente).
 - Tipos: `typescript`, `vite-plugin-dts`.
 - Lint: `eslint`, `prettier`.
@@ -100,8 +112,6 @@ Se não houver erros, está pronto para usar!
 - Gerenciador de pacotes: `npm 11.6.0+`
 
 **Tecnologias necessárias**
-
-
 
 **Para desenvolvedor localmente**
 
@@ -151,8 +161,14 @@ npm run lint
 
 ---
 
+## **Publicar novas versões no NPM**
+
+```
+npm run release
+```
 
 ## **Lista de Componentes (baseado em `lib/components`)**
+
 - Button
 - Camera
 - Card
@@ -181,6 +197,7 @@ npm run lint
 > Observação: os componentes acima correspondem às pastas encontradas em `lib/components`. Alguns componentes podem ter subcomponentes ou arquivos de tipagem separados.
 
 **Storybook**
+
 - O projeto inclui suporte a Storybook para documentar e visualizar componentes isoladamente.
 - Como rodar localmente:
 
@@ -196,6 +213,7 @@ npm run build-storybook
 ```
 
 **Plop (Gerador de Componentes)**
+
 - O repositório inclui templates Plop em `generate/plop-templates` e um `plopfile.ts` em `generate/` para criar rapidamente novos componentes seguindo o padrão do projeto.
 - Para executar o gerador:
 
@@ -204,8 +222,8 @@ npm run generate
 ```
 
 - O comando irá executar o plop com o `plopfile` do projeto e promptar informações (nome do componente, criar arquivos de teste, story, etc.). Ele automatiza:
-	- criação de pasta do componente
-	- arquivos `.tsx`, `.module.css`, `.stories.tsx` e `.types.ts` a partir de templates
+  - criação de pasta do componente
+  - arquivos `.tsx`, `.module.css`, `.stories.tsx` e `.types.ts` a partir de templates
 
 **Como executar os exemplos localmente**
 
@@ -221,48 +239,48 @@ npm run dev
 
 Observação: os exemplos abaixo assumem que você está desenvolvendo dentro do monorepo. Para consumir a lib como pacote publicado use `import { Button } from 'dados-saude';`.
 
-1) Button
+1. Button
 
 ```tsx
 import React from 'react';
 import { Button } from '@lib/components/Button';
 
 export default function ButtonExample() {
-	return (
-		<div style={{ padding: 20 }}>
-			<Button onClick={() => alert('Salvo')}>
-				Salvar
-			</Button>
-			<Button onClick={() => {}} disabled style={{ marginLeft: 8 }}>
-				Desabilitado
-			</Button>
-		</div>
-	);
+  return (
+    <div style={{ padding: 20 }}>
+      <Button onClick={() => alert('Salvo')}>Salvar</Button>
+      <Button onClick={() => {}} disabled style={{ marginLeft: 8 }}>
+        Desabilitado
+      </Button>
+    </div>
+  );
 }
 ```
 
-2) Input
+2. Input
 
 ```tsx
 import React, { useState } from 'react';
 import { Input } from '@lib/components/Input';
 
 export default function InputExample() {
-	const [value, setValue] = useState('');
-	return (
-		<div style={{ padding: 20 }}>
-			<Input
-				value={value}
-				onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value)}
-				placeholder="Digite seu nome"
-			/>
-			<p>Valor atual: {value}</p>
-		</div>
-	);
+  const [value, setValue] = useState('');
+  return (
+    <div style={{ padding: 20 }}>
+      <Input
+        value={value}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setValue(e.target.value)
+        }
+        placeholder="Digite seu nome"
+      />
+      <p>Valor atual: {value}</p>
+    </div>
+  );
 }
 ```
 
-3) Modal
+3. Modal
 
 ```tsx
 import React, { useState } from 'react';
@@ -270,65 +288,63 @@ import { Modal } from '@lib/components/Modal';
 import { Button } from '@lib/components/Button';
 
 export default function ModalExample() {
-	const [open, setOpen] = useState(false);
-	return (
-		<div style={{ padding: 20 }}>
-			<Button onClick={() => setOpen(true)}>Abrir modal</Button>
-			<Modal open={open} onClose={() => setOpen(false)}>
-				<div style={{ padding: 16 }}>
-					<h3>Título da Modal</h3>
-					<p>Conteúdo interno da modal.</p>
-					<Button onClick={() => setOpen(false)}>Fechar</Button>
-				</div>
-			</Modal>
-		</div>
-	);
+  const [open, setOpen] = useState(false);
+  return (
+    <div style={{ padding: 20 }}>
+      <Button onClick={() => setOpen(true)}>Abrir modal</Button>
+      <Modal open={open} onClose={() => setOpen(false)}>
+        <div style={{ padding: 16 }}>
+          <h3>Título da Modal</h3>
+          <p>Conteúdo interno da modal.</p>
+          <Button onClick={() => setOpen(false)}>Fechar</Button>
+        </div>
+      </Modal>
+    </div>
+  );
 }
 ```
 
-4) Camera
+4. Camera
 
 ```tsx
 import React from 'react';
 import { Camera } from '@lib/components/Camera';
 
 export default function CameraExample() {
-	function handleCapture(dataUrl: string) {
-		// dataUrl é a imagem capturada em base64
-		console.log('captured', dataUrl);
-	}
+  function handleCapture(dataUrl: string) {
+    // dataUrl é a imagem capturada em base64
+    console.log('captured', dataUrl);
+  }
 
-	return (
-		<div style={{ padding: 20 }}>
-			<Camera onCapture={handleCapture} />
-		</div>
-	);
+  return (
+    <div style={{ padding: 20 }}>
+      <Camera onCapture={handleCapture} />
+    </div>
+  );
 }
 ```
 
-5) Select (exemplo rápido)
+5. Select (exemplo rápido)
 
 ```tsx
 import React, { useState } from 'react';
 import { Select } from '@lib/components/Select';
 
 export default function SelectExample() {
-	const [value, setValue] = useState('');
-	const options = [
-		{ label: 'Opção 1', value: '1' },
-		{ label: 'Opção 2', value: '2' },
-	];
+  const [value, setValue] = useState('');
+  const options = [
+    { label: 'Opção 1', value: '1' },
+    { label: 'Opção 2', value: '2' },
+  ];
 
-	return (
-		<div style={{ padding: 20 }}>
-			<Select options={options} value={value} onChange={(v) => setValue(v)} />
-			<p>Selecionado: {value}</p>
-		</div>
-	);
+  return (
+    <div style={{ padding: 20 }}>
+      <Select options={options} value={value} onChange={(v) => setValue(v)} />
+      <p>Selecionado: {value}</p>
+    </div>
+  );
 }
 ```
-
-
 
 Arquivos de exemplo
 
@@ -343,11 +359,11 @@ import React from 'react';
 import { Button } from 'dados-saude';
 
 export default function Example() {
-	return (
-		<div>
-			<Button onClick={() => alert('clicou')}>Salvar</Button>
-		</div>
-	);
+  return (
+    <div>
+      <Button onClick={() => alert('clicou')}>Salvar</Button>
+    </div>
+  );
 }
 ```
 
@@ -377,8 +393,8 @@ Uso de componentes comuns — exemplos rápidos:
 
 Se precisar, eu posso adicionar exemplos de uso por prop para componentes específicos.
 
-
 **Export Map / Entradas Principais**
+
 - `package.json` fornece entradas exportáveis, por exemplo:
 - `."` aponta para `./dist/main.js` (main import),
 - `./components` aponta para `./dist/components/index.js`.
@@ -386,13 +402,16 @@ Se precisar, eu posso adicionar exemplos de uso por prop para componentes espec�
 Verifique `package.json` para o mapa completo de `exports` caso precise de import por subpath.
 
 **Dicas e Troubleshooting**
+
 - Se receber erros de peer dependency, instale a versão apropriada do `react`/`react-dom` no projeto consumidor.
 - Se os tipos não aparecerem após instalar o pacote, confirme se `types` em `package.json` aponta para `dist/main.d.ts` e que o pacote foi publicado com as declarações.
 - Para ver os arquivos que serão publicados, confira a seção `files` em `package.json`.
 
 **Licença**
+
 - Verifique se há um arquivo `LICENSE` no repositório. Se não houver, pergunte ao mantenedor sobre a licença desejada antes de usar em projetos proprietários.
 
 **Contato / Repositório**
+
 - Código-fonte: URL do repositório está em `package.json` (`repository.url`).
 - Para dúvidas e suporte, abra uma issue no repositório ou contate os mantenedores listados no projeto.
