@@ -1,0 +1,116 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="02 - Variáveis de cores" />
+
+**Lista de variáveis de cor (extraídas de `lib/styles/colors.css`)**
+
+### 🎨 Paleta de Cores
+
+Abaixo estão todas as cores definidas no tema do sistema Dados Saúde, agrupadas conforme sua função.
+
+---
+
+export const colorGroups = {
+  "Cores Base": {
+    "--color-primary": "#ffffff",
+    "--color-secondary": "#6c757d",
+    "--color-tertiary": "#a1abb2",
+    "--color-quartenary": "#3c4043",
+    "--color-quintenary": "#969696",
+    "--color-sextenary": "#303131",
+  },
+
+"Cores de Estado (Disabled)": {
+"--color-disabled": "#a4a4a4",
+"--color-disabled-bg2": "#d1d1d1",
+},
+
+"Backgrounds": {
+"--bg-primary": "#0476d9",
+"--bg-secondary": "#a4a4a4",
+"--bg-tertiary": "#ffffff",
+"--bg-quartenary": "#d9d9d9",
+"--bg-disabled-first": "#a4a4a4",
+"--bg-disabled-secondary": "#d1d1d1",
+},
+
+"Texto": {
+"--color-text-primary": "#000000",
+"--color-text-secondary": "#033059",
+"--color-text-error": "#ff4b4b",
+},
+
+"Botões": {
+"--button-bg-primary": "#0476d9",
+"--button-text-primary": "#ffffff",
+"--button-bg-secondary": "transparent",
+"--button-text-secondary": "#0476d9",
+"--button-bg-disabled": "#a4a4a4",
+"--button-text-disabled": "#ffffff",
+},
+
+"Status": {
+"--bg-success": "#2e7d32",
+"--bg-warning": "#838506",
+"--bg-info": "#033059",
+"--bg-error": "#d32f2f",
+},
+
+"Bordas": {
+"--color-border-primary": "#d1d1d1",
+"--color-border-secondary": "#505659",
+"--color-border-tertiary": "#f1f1f1",
+"--color-border-quartenary": "#0c0c0c",
+"--color-border-error": "#ff4b4b",
+},
+
+"Links": {
+"--color-link-primary": "#505659",
+"--color-link-secondary": "#0476d9",
+"--color-link-tertiary": "#033059",
+},
+};
+
+---
+
+{Object.entries(colorGroups).map(([groupName, group]) => (
+
+  <>
+    <h2 style={{ marginTop: "32px" }}>{groupName}</h2>
+
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
+        gap: "20px",
+        marginBottom: "20px",
+      }}
+    >
+      {Object.entries(group).map(([varName, value]) => (
+        <div
+          style={{
+            padding: "12px",
+            borderRadius: "8px",
+            border: "1px solid #ddd",
+          }}
+        >
+          <div
+            style={{
+              width: "100%",
+              height: "60px",
+              background: value,
+              borderRadius: "6px",
+              border:
+                value === "transparent" ? "1px dashed #ccc" : "none",
+            }}
+          />
+          <p style={{ marginTop: "10px", fontWeight: 600, fontSize: 14 }}>{varName}</p>
+          <code style={{ fontSize: 12 }}>{value}</code>
+        </div>
+      ))}
+    </div>
+
+  </>
+))}
+
+(Use `:root { ... }` no arquivo para referência completa.)

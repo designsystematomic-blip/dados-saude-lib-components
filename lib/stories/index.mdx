@@ -1,0 +1,108 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="0 - Introdução ao DS Atomic" />
+
+# Storybook — Design System (Design System Atomic)
+
+Resumo rápido do Storybook para este design system.
+
+**Conteúdo incluído**
+
+- **Componentes:** 24
+- **Ícones:** 23
+- **Arquivo de cores:** `lib/styles/colors.css` (variáveis CSS definidas)
+- **Tamanhos / fontes:** `lib/styles/fonts.css` (declarações `@font-face` e variáveis de família de fonte)
+- **Reset global:** `lib/styles/reset.css`
+- **Stories:** cada componente tem seu `.stories.tsx` dentro de `lib/components/<Component>`
+
+---
+
+**Onde estão os arquivos importantes**
+
+- Componentes: `lib/components/` (cada pasta de componente contém `Component.tsx` e `Component.stories.tsx`)
+- Ícones: `lib/icons/` (cada ícone em sua pasta, `index.ts` expõe todos)
+- Variáveis de cor: `lib/styles/colors.css` — lista de variáveis CSS disponíveis (ex.: `--color-primary`, `--bg-primary`, `--button-bg-primary`, etc.)
+- Fontes e famílias: `lib/styles/fonts.css` — declara `@font-face` para `Poppins` e `Outfit` e define variáveis: `--font-family-base`, `--font-family-secondary`, `--font-family-tertiary`.
+- Reset global: `lib/styles/reset.css`
+- Bundle/style distribuído: `dist/styles/style.css` (após `npm run build`)
+
+---
+
+**Exemplo de uso em um projeto consumidor (aplicar estilos globais)**
+
+Se você instala o pacote via npm e precisa aplicar os estilos globais do design system no seu projeto (incluindo Storybook do consumidor), importe o CSS gerado no ponto de entrada do app (ex.: `src/main.tsx`) ou no `preview` do Storybook:
+
+```ts
+// importe no entrypoint do app
+import 'design-system-atomic/dist/styles/style.css';
+
+// ou, para Storybook do projeto que consome a lib, em .storybook/preview.ts
+import 'design-system-atomic/dist/styles/style.css';
+```
+
+Observação: o nome e caminho do CSS podem variar conforme a versão do pacote — verifique `dist/styles/` após `npm run build`.
+
+---
+
+**Lista de variáveis de cor (extraídas de `lib/styles/colors.css`)**
+
+    - `--color-primary`
+    - `--color-secondary`
+    - `--color-tertiary`
+    - `--color-quartenary`
+    - `--color-quintenary`
+    - `--color-sextenary`
+    - `--color-disabled`
+    - `--color-disabled-bg2`
+    - `--bg-primary`
+    - `--bg-secondary`
+    - `--bg-tertiary`
+    - `--bg-quartenary`
+    - `--bg-disabled-first`
+    - `--bg-disabled-secondary`
+    - `--color-text-primary`
+    - `--color-text-secondary`
+    - `--color-text-error`
+    - `--button-bg-primary`
+    - `--button-text-primary`
+    - `--button-bg-secondary`
+    - `--button-text-secondary`
+    - `--button-bg-disabled`
+    - `--button-text-disabled`
+    - `--bg-success`
+    - `--bg-warning`
+    - `--bg-info`
+    - `--bg-error`
+    - `--color-border-primary`
+    - `--color-border-secondary`
+    - `--color-border-tertiary`
+    - `--color-border-quartenary`
+    - `--color-border-error`
+    - `--color-link-primary`
+    - `--color-link-secondary`
+    - `--color-link-tertiary`
+
+(Use `:root { ... }` no arquivo para referência completa.)
+
+---
+
+**Fontes / familias (de `lib/styles/fonts.css`)**
+
+- Fontes incluídas via `@font-face`: `Poppins` (400,500,600,700), `Outfit` (400,500,600,700)
+- Variáveis de família:
+  - `--font-family-base` (Poppins como padrão)
+  - `--font-family-secondary` (Outfit)
+  - `--font-family-tertiary` (Arial fallback)
+
+---
+
+**Recomendações e notas**
+
+- Garanta que o projeto consumidor importe o CSS da lib (ex.: `dist/styles/style.css`) ou carregue `lib/styles/style.css` durante o build para que as variáveis e resets estejam disponíveis.
+- Se o consumidor usa Vite, importe o CSS a partir do `node_modules` (conforme exemplo acima) ou configure o bundler para servir os assets da lib.
+- Stories de componentes estão em `lib/components/*/*.stories.tsx` — edite ou adicione stories conforme necessário.
+- Add-ons úteis presentes: a11y (ver `package.json` e `.storybook` config).
+
+---
+
+_Arquivo gerado automaticamente: `storybook/README.md` — convertido para a página inicial do Storybook._
