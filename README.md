@@ -167,6 +167,29 @@ npm run lint
 npm run release
 ```
 
+## **Para tornar o repositório linkável por um repositório consumidor**
+
+Essa etapa é fundamental para que os componentes criados localmente sejam visíveis por outro repositório, para isso:
+
+Tornar o repositório linkável localmente
+
+```
+npm link
+```
+
+Buildar os componentes em tempo real
+
+```
+npm run watch
+```
+
+No repositório que desejar, abra o terminal e execute o seguinte comando:
+
+```
+npm link design-system-atomic
+```
+
+
 ## **Lista de Componentes (baseado em `lib/components`)**
 
 - Button
@@ -196,7 +219,7 @@ npm run release
 
 > Observação: os componentes acima correspondem às pastas encontradas em `lib/components`. Alguns componentes podem ter subcomponentes ou arquivos de tipagem separados.
 
-**Storybook**
+## **Storybook**
 
 - O projeto inclui suporte a Storybook para documentar e visualizar componentes isoladamente.
 - Como rodar localmente:
@@ -407,11 +430,11 @@ Verifique `package.json` para o mapa completo de `exports` caso precise de impor
 - Se os tipos não aparecerem após instalar o pacote, confirme se `types` em `package.json` aponta para `dist/main.d.ts` e que o pacote foi publicado com as declarações.
 - Para ver os arquivos que serão publicados, confira a seção `files` em `package.json`.
 
-**Licença**
 
-- Verifique se há um arquivo `LICENSE` no repositório. Se não houver, pergunte ao mantenedor sobre a licença desejada antes de usar em projetos proprietários.
+## 📝 Licença
 
-**Contato / Repositório**
+Este projeto é parte do projeto de conclusão de pós-graduação do IFBA.
 
-- Código-fonte: URL do repositório está em `package.json` (`repository.url`).
-- Para dúvidas e suporte, abra uma issue no repositório ou contate os mantenedores listados no projeto.
+## 👥 Dúvidas?
+
+amandaprates1997@gmail.com
