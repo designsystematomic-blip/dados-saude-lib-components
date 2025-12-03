@@ -85,15 +85,15 @@ h6:first-letter {
   font-weight: 300;
 }
 
-.regular {
+.fontRegular {
   font-weight: 500;
 }
 
-.semibold {
+.fontSemibold {
   font-weight: 600;
 }
 
-.bold {
+.fontBold {
   font-weight: 700;
 }
 
