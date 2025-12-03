@@ -15,6 +15,11 @@
   width: 50px;
 }
 
+.original {
+  width: auto;
+  height: auto;
+}
+
 .slim > *,
 .regular > *,
 .medium > *,
