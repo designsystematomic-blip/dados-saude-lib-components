@@ -47,7 +47,7 @@
   border-color: var(--color-border-secondary);
 }
 
-.input[type="password"]::-ms-reveal {
+.input[type='password']::-ms-reveal {
   display: none;
 }
 
@@ -62,7 +62,7 @@
   background-color: transparent;
   cursor: pointer;
   border: unset;
-  top: 29%;
+  top: 51%;
   right: 16px;
 }
 
@@ -80,6 +80,7 @@
   background-color: transparent;
   cursor: pointer;
   border: none;
-  top: 13px;
+  top: 51%;
   right: 10px;
+  z-index: 1;
 }
