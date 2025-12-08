@@ -42,7 +42,8 @@
   width: 100%;
 }
 
-.input::placeholder {
+.input::placeholder,
+input[type='date']::-webkit-datetime-edit {
   color: var(--color-tertiary);
 }
 
@@ -53,11 +54,6 @@
 .input[type='password']::-ms-reveal {
   display: none;
 }
-
-/* .input[type="date"]::-webkit-calendar-picker-indicator {
-  display: none;
-  -webkit-appearance: none;
-} */
 
 .buttonProtect {
   position: absolute;
