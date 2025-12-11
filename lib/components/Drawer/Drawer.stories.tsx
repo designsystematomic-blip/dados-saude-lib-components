@@ -1,7 +1,7 @@
-import { Meta, StoryObj } from '@storybook/react';
-import Drawer from './Drawer';
-import { useState } from 'react';
 import { IconClose } from '@lib/icons';
+import { Meta, StoryObj } from '@storybook/react';
+import { useState } from 'react';
+import Drawer from './Drawer';
 
 type Story = StoryObj<typeof Drawer>;
 
@@ -12,7 +12,7 @@ const meta: Meta<typeof Drawer> = {
     args: {
         position: 'left',
         width: 'half',
-        children: <>Teste</>,
+        children: 'Teste',
     },
     argTypes: {
         position: { control: "text" },
@@ -21,7 +21,8 @@ const meta: Meta<typeof Drawer> = {
             options: ["full", "half", "third"],
         },
         children: {
-            control: "text"
+            control: "text",
+            "defaultValue": "Teste"
         }
     },
 };
@@ -74,7 +75,8 @@ export const Default: Story = {
             options: ["full", "half", "third"],
         },
         children: {
-            control: "text"
+            control: "text",
+            "defaultValue": "Teste"
         }
     },
 };

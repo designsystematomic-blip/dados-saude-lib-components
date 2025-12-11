@@ -1,6 +1,7 @@
-import { Meta, StoryObj } from "@storybook/react";
-import Snackbar from "./Snackbar";
+import { StoryObj } from "@storybook/react";
 import { useState } from "react";
+import Button from "../Button";
+import Snackbar from "./Snackbar";
 
 export default {
   title: "Components/Snackbar",
@@ -19,7 +20,12 @@ const Template = (args: any) => {
 
   return (
     <>
-      <button onClick={toggleDrawer}>Open </button>
+      <Button 
+        onClick={toggleDrawer}
+        variant="primary"
+        label="Action"
+        type="button"
+      />
       <Snackbar {...args} isOpen={open} onClose={toggleDrawer} />
     </>
   );

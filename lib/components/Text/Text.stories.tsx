@@ -16,6 +16,14 @@ const meta: Meta<typeof Text> = {
       control: { type: 'select' },
       options: ['left', 'center', 'right', 'justify'],
     },
+    fontFamily: {
+      control: { type: 'select' },
+      options: ['primary', 'secondary', 'tertiary'],
+    },
+    fontWeight: {
+      control: { type: 'select' },
+      options: ['light', 'normal', 'bold', 'regular'],
+    }
   },
 };
 

@@ -5,6 +5,10 @@ const meta: Meta<typeof Textarea> = {
   title: 'Components/Textarea',
   component: Textarea,
   tags: ['autodocs'],
+  args: {
+    resize: true,
+    hasError: false,
+  },
   argTypes: {
     ariaLabel: { control: 'text' },
     id: { control: 'text' },

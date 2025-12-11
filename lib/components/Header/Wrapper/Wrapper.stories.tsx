@@ -5,6 +5,12 @@ const meta: Meta<typeof Wrapper> = {
   title: "Components/Header/Wrapper",
   component: Wrapper,
   tags: ["autodocs"],
+  args: {
+    children: 'Header Wrapper Content',
+  },
+  argTypes: {
+    children: { control: "text" },
+  },
 };
 
 export default meta;

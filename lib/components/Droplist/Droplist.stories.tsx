@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
+import Text from '../Text';
 import Droplist from './Droplist';
 
 const meta: Meta<typeof Droplist> = {
@@ -68,7 +69,16 @@ function DroplistMounted(args: any) {
         fontFamily={args.variant}
         textSize={args.size}
       />
-      Item selecionado: {selectedItem?.name}
+      <Text 
+        fontFamily={'primary'}
+        textSize={args.textSize}
+        content={'Item selecionado:'}
+      />
+      <Text 
+        fontFamily={'primary'}
+        textSize={args.textSize}
+        content={selectedItem?.name || ''}
+        />
     </div>
   );
 }

@@ -15,7 +15,8 @@ function Card ({
   textSize, 
   titleColor, 
   subtitleColor, 
-  style }: CardProps) {
+  style 
+}: CardProps) {
 
   const { extraClasses } = useBaseComponent({
     fontFamily,
