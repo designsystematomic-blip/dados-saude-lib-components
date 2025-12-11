@@ -163,6 +163,14 @@ npm run lint
 
 ## **Publicar novas versões no NPM**
 
+Faça o login no npm
+
+```
+npm link
+```
+
+Após o login, pode executar a cli abaixo. Antes, certifique-se que não há arquivos para commitar:
+
 ```
 npm run release
 ```
@@ -188,7 +196,6 @@ No repositório que desejar, abra o terminal e execute o seguinte comando:
 ```
 npm link design-system-atomic
 ```
-
 
 ## **Lista de Componentes (baseado em `lib/components`)**
 
@@ -429,7 +436,6 @@ Verifique `package.json` para o mapa completo de `exports` caso precise de impor
 - Se receber erros de peer dependency, instale a versão apropriada do `react`/`react-dom` no projeto consumidor.
 - Se os tipos não aparecerem após instalar o pacote, confirme se `types` em `package.json` aponta para `dist/main.d.ts` e que o pacote foi publicado com as declarações.
 - Para ver os arquivos que serão publicados, confira a seção `files` em `package.json`.
-
 
 ## 📝 Licença
 
