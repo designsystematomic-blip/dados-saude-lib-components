@@ -29,7 +29,7 @@
 }
 
 .drop {
-  background-color: #ff0;
+  background-color: var(--bg-tertiary);
   position: absolute;
   width: 100%;
   padding-top: 24px;
