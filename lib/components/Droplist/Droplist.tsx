@@ -84,7 +84,7 @@ function Droplist ({
           <span>{buttonPlaceholder}</span>
           <IconChevronDown />
         </button>
-        {list && list.length > 0 && (
+        {list && list.length > 0 && ( 
           <div className={`${styles.drop} ${open ? styles.open : ''}`}>
             {listTitle && (
               <Title 

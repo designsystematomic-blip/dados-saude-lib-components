@@ -17,6 +17,7 @@
   width: 100%;
   border-radius: 5px;
   padding: 12px 16px;
+  /* max-height: 44px; */
 }
 
 .error {
@@ -28,7 +29,7 @@
 }
 
 .drop {
-  background-color: var(--bg-tertiary);
+  background-color: #ff0;
   position: absolute;
   width: 100%;
   padding-top: 24px;
@@ -68,4 +69,14 @@
 
 .item:last-child {
   border-bottom: none;
+}
+
+@media (max-width: 767px) {
+  .dropList {
+    overflow: visible;
+  }
+
+  .dropList .button {
+    max-height: 42px;
+  }
 }
